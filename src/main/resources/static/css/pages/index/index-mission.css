@@ -1,0 +1,275 @@
+/* =============================================================================
+   PROJECT AKASHA - MISSION SECTION STYLING
+   Mission section untuk landing page
+   ============================================================================= */
+
+/* ======= MISSION SECTION ======= */
+.mission-section {
+    background: var(--color-gray-50); /* Background konsisten dengan seksi lain */
+    color: var(--color-text); /* Text color disesuaikan */
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(74, 144, 226, 0.03) 0%, transparent 50%); /* Subtle accent */
+    pointer-events: none;
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-4xl);
+    align-items: flex-start; /* Perbaikan alignment - kolom dimulai dari atas */
+    position: relative;
+    z-index: 1;
+}
+
+.mission-text .section-title {
+    color: var(--color-text); /* Text color disesuaikan */
+    background: none;
+    -webkit-text-fill-color: var(--color-text);
+    text-align: left;
+}
+
+.mission-intro {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-3xl); /* Spacing lebih besar untuk breathing room */
+    color: var(--color-text-light);
+}
+
+.mission-intro p {
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-light); /* Consistent text color */
+}
+
+.mission-block {
+    margin-bottom: var(--space-xl);
+    margin-top: var(--space-3xl); /* Spacing lebih besar untuk pemisahan yang jelas */
+}
+
+.mission-block:first-child {
+    margin-top: 0; /* Visi section tidak perlu margin top */
+}
+
+.mission-block h3 {
+    font-size: 1.375rem; /* Font sedikit lebih besar untuk hierarki yang kuat */
+    font-weight: 700; /* Font weight lebih bold untuk emphasis */
+    margin-bottom: var(--space-xl); /* Margin bottom lebih besar untuk breathing room */
+    color: var(--color-text); /* Text color disesuaikan */
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm); /* Padding bawah untuk spacing dengan konten */
+    border-bottom: 2px solid var(--color-gray-100); /* Subtle bottom border untuk pemisahan */
+}
+
+.mission-block h3 i {
+    font-size: 1.5rem;
+    color: var(--color-primary); /* Icon dengan warna primary */
+}
+
+.mission-block p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light); /* Text color disesuaikan */
+    margin-bottom: var(--space-sm);
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0; /* Hilangkan padding default */
+    margin: var(--space-xl) 0; /* Margin lebih besar untuk breathing room */
+}
+
+.mission-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md); /* Gap yang lebih lega */
+    margin-bottom: var(--space-xl); /* Spacing antar item lebih besar untuk keterbacaan */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-light); /* Text color disesuaikan */
+    transition: all 0.3s ease; /* Smooth transition untuk hover */
+}
+
+.mission-list li:hover {
+    color: var(--color-text); /* Darker text pada hover */
+    transform: translateX(5px); /* Subtle hover effect */
+}
+
+.mission-list li::before {
+    content: '💙'; /* Ikon hati biru untuk empati */
+    font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.mission-list li:hover::before {
+    opacity: 1;
+    transform: scale(1.1); /* Ikon sedikit membesar saat hover */
+}
+
+.signature {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-text-muted); /* Text color disesuaikan */
+    margin-top: var(--space-xl);
+    text-align: right;
+    border-top: 1px solid var(--color-gray-200); /* Border color disesuaikan */
+    padding-top: var(--space-lg);
+}
+
+.mission-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl); /* Gap lebih besar untuk breathing room dan keseimbangan visual */
+}
+
+/* Staggered animation untuk value cards */
+.value-item:nth-child(1) { animation-delay: 0.1s; }
+.value-item:nth-child(2) { animation-delay: 0.2s; }
+.value-item:nth-child(3) { animation-delay: 0.3s; }
+.value-item:nth-child(4) { animation-delay: 0.4s; }
+
+.value-item {
+    background: var(--color-white); /* Background putih bersih */
+    border-radius: var(--radius-xl); /* Radius lebih besar untuk tampilan modern */
+    padding: var(--space-xl); /* Padding lebih generous */
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(45, 55, 72, 0.08); /* Shadow subtle seperti feature cards */
+    border: 1px solid var(--color-gray-100); /* Border halus */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi yang lebih smooth dan premium */
+    position: relative;
+    overflow: hidden;
+    /* Animasi fade-in default */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.value-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+    transform-origin: left;
+}
+
+.value-item:hover {
+    background: var(--color-white); /* Tetap putih */
+    transform: translateY(-8px); /* Efek floating lebih dramatis */
+    box-shadow: 0 20px 50px rgba(45, 55, 72, 0.15); /* Shadow lebih premium saat hover */
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.value-item:hover::before {
+    transform: scaleX(1); /* Top border gradient saat hover */
+}
+
+.value-icon {
+    font-size: 2.5rem; /* Icon lebih besar untuk impact visual */
+    margin-bottom: var(--space-lg); /* Spacing lebih generous */
+    display: block;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover .value-icon {
+    opacity: 1;
+    transform: scale(1.1); /* Icon membesar saat hover */
+}
+
+.value-item h4 {
+    font-size: 1.1rem; /* Font sedikit lebih besar */
+    font-weight: 700; /* Font weight lebih bold */
+    color: var(--color-primary); /* Warna primary untuk highlight */
+    margin-bottom: var(--space-md); /* Spacing lebih besar */
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover h4 {
+    color: var(--color-secondary); /* Warna secondary saat hover */
+}
+
+.value-item p {
+    font-size: 0.9rem; /* Font sedikit lebih besar */
+    color: var(--color-text-light); /* Text color konsisten */
+    line-height: 1.5; /* Line height lebih comfortable */
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover p {
+    color: var(--color-text); /* Text lebih gelap saat hover */
+}
+
+/* Responsive Design for Mission */
+@media (max-width: 768px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+        text-align: center;
+    }
+    
+    .mission-text .section-title {
+        text-align: center;
+    }
+    
+    .signature {
+        text-align: center;
+    }
+    
+    .mission-block h3 {
+        justify-content: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg); /* Gap lebih lega di mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg); /* Gap konsisten */
+    }
+    
+    .value-item {
+        padding: var(--space-lg); /* Padding lebih comfortable */
+    }
+    
+    .mission-intro {
+        font-size: 1.1rem;
+    }
+    
+    .mission-block p {
+        font-size: 1rem;
+    }
+    
+    .mission-list li {
+        font-size: 0.95rem;
+    }
+}

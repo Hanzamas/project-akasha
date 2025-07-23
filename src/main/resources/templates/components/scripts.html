@@ -1,0 +1,25 @@
+<!-- Main Scripts Fragment -->
+<th:block th:fragment="scripts">
+    <!-- Core JavaScript Files -->
+    <script th:src="@{/js/theme-switcher.js}" defer></script>
+    <script th:src="@{/js/layouts/main.js}" defer></script>
+    
+
+    <!-- Component JavaScript Files -->
+    <script th:src="@{/js/components/header.js}" defer></script>
+    <script th:src="@{/js/components/footer.js}" defer></script>
+</th:block>
+
+<!-- Index Page Scripts -->
+<th:block th:fragment="index-scripts">
+    <script th:src="@{/js/pages/index.js}" defer></script>
+</th:block>
+
+<!-- Legal Pages Scripts -->
+<th:block th:fragment="legal-scripts">
+    <script th:src="@{/js/pages/legal.js}" defer></script>
+</th:block>
+
+
+
+

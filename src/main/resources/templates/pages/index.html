@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id" 
+      xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/main :: layout(~{::title}, ~{::meta}, ~{::links}, ~{::scripts}, ~{::main})}"
+>
+<head>
+    <title th:text="${pageTitle}">Project Akasha: Ubah Luka Menjadi Kekuatan</title>
+    
+    <!-- Page-specific meta tags -->
+    <th:block th:fragment="meta">
+        <meta name="description" th:content="${pageDescription}">
+        <meta name="keywords" content="kesehatan mental, AI, bullying, survivor, dukungan psikologis, Indonesia">
+        <meta name="author" content="Hanzama Development">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Project Akasha: Ubah Luka Menjadi Kekuatan">
+        <meta property="og:description" content="Platform kesehatan mental yang membangun ruang aman untuk para survivor bullying">
+        <meta property="og:type" content="website">
+        <meta property="og:image" th:content="@{/images/cover-character.jpg}">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Project Akasha: Ubah Luka Menjadi Kekuatan">
+        <meta name="twitter:description" content="Platform kesehatan mental yang membangun ruang aman untuk para survivor bullying">
+        <meta name="twitter:image" th:content="@{/images/cover-character.jpg}">
+    </th:block>
+    
+    <!-- Landing Page Specific CSS - POLISHED -->
+    <th:block th:fragment="links">
+        <link rel="stylesheet" th:href="@{/css/pages/index.css}">
+    </th:block>
+    
+    <!-- Landing Page Specific JavaScript - POLISHED -->
+    <th:block th:fragment="scripts">
+        <script th:src="@{/js/pages/index.js}" defer></script>
+    </th:block>
+</head>
+<body>
+    <main th:fragment="main">
+        <!-- Loading Screen -->
+        <div id="loading-screen" aria-hidden="true">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Memuat Project Akasha...</div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-decoration" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text fade-in">
+                        <h1 class="hero-title">Ubah Luka<br>Menjadi Kekuatan</h1>
+                        <p class="hero-subtitle">
+                            Sebuah ruang aman untukmu yang berjuang.<br>
+                            Dipandu oleh mereka yang memahami jalanmu.<br>
+                            <em>Saat korban menjadi pahlawan bagi sesama survivor.</em>
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Support Available</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Confidential</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">∞</div>
+                                <div class="stat-label">Possibilities</div>
+                            </div>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <a th:href="@{/api/auth/register}" class="btn-primary hero-cta" aria-label="Begin your healing journey">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                Mulai Perjalanan Anda
+                            </a>
+                            <a href="#story" class="btn-secondary">Pelajari Lebih Lanjut</a>
+                        </div>
+
+                        <div class="hero-trust-indicators">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                                <span>End-to-End Encrypted</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span>Built with Empathy</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                                <span>Community Driven</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual fade-in">
+                        <div class="hero-character">
+                            <img th:src="@{/images/cover-character.jpg}" 
+                                 alt="Karakter guru anime berambut perak mengulurkan tangan dengan ramah" 
+                                 class="character-img character-main"
+                                 loading="eager"
+                                 width="400" 
+                                 height="400">
+                            <div class="character-glow"></div>
+                        </div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-icon" style="--delay: 0s;">💙</div>
+                            <div class="floating-icon" style="--delay: 1s;">✨</div>
+                            <div class="floating-icon" style="--delay: 2s;">🌱</div>
+                            <div class="floating-icon" style="--delay: 3s;">💚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="story-section section">
+            <div class="container">
+                <!-- Baris 1: Header & Journey Map -->
+                <div class="story-header-row fade-in">
+                    <div class="section-header">
+                        <h2 class="section-title">Sebuah Ruang Aman,<br>Dibangun dari Pengalaman</h2>
+                        <p class="section-subtitle">
+                            Lahir dari pengalaman pribadi dan komitmen untuk menciptakan perubahan nyata
+                        </p>
+                    </div>
+                    
+                    <!-- Journey Progress sebagai "peta" visual -->
+                    <div class="journey-map-container">
+                        <h2 class="journey-map-title">Peta Perjalanan Kami</h2>
+                        
+                        <div class="progress-steps">
+                            <div class="progress-line-bg"></div>
+                            <div class="progress-line-fg"></div>
+
+                            <div class="step-item">
+                                <div class="step-circle">1</div>
+                                <div class="step-label">Trauma</div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-circle">2</div>
+                                <div class="step-label">Awareness</div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-circle">3</div>
+                                <div class="step-label">Healing</div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-circle step-circle-active">4</div>
+                                <div class="step-label">Helping</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris 2: Kisah & Proses (Layout Seimbang) -->
+                <div class="story-main-row fade-in">
+                    <div class="story-narrative">
+                        <div class="story-block">
+                            <h3>Dari Kegelapan Menuju Cahaya</h3>
+                            <p>
+                                Kami tahu bagaimana rasanya merasa sendirian. Kami mengerti sakitnya kata-kata yang menusuk. 
+                                Itulah mengapa Project Akasha lahir—bukan hanya sebagai aplikasi, tapi sebagai sebuah janji.
+                            </p>
+                        </div>
+
+                        <div class="story-block">
+                            <h3>Teknologi yang Memahami</h3>
+                            <p>
+                                Sebagai seorang developer yang pernah merasakan titik terendah dalam hidup, 
+                                saya memutuskan untuk menciptakan sesuatu yang benar-benar meaningful.
+                            </p>
+                        </div>
+
+                        <div class="story-block">
+                            <h3>Komunitas yang Saling Menguatkan</h3>
+                            <p>
+                                Project Akasha adalah tentang membangun komunitas di mana para survivor 
+                                bisa saling berbagi kekuatan tanpa takut dihakimi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="story-timeline">
+                        <h3 class="timeline-title">Langkah-Langkah Konkret</h3>
+                        <div class="timeline-items">
+                            <div class="timeline-item">
+                                <div class="timeline-dot">1</div>
+                                <div class="timeline-content">
+                                    <h4>Personal Experience</h4>
+                                    <p>Mengalami sendiri dampak bullying dan memahami kebutuhan nyata</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">2</div>
+                                <div class="timeline-content">
+                                    <h4>Learning Phase</h4>
+                                    <p>Mempelajari tentang kesehatan mental dan teknologi pendukung</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">3</div>
+                                <div class="timeline-content">
+                                    <h4>Development</h4>
+                                    <p>Membangun solusi berbasis teknologi dengan pendekatan empati</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">4</div>
+                                <div class="timeline-content">
+                                    <h4>Community</h4>
+                                    <p>Menciptakan ruang aman bersama untuk saling menguatkan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris 3: Nilai-Nilai Inti (Grid 4 Kolom) -->
+                <div class="story-values-row fade-in">
+                    <h3 class="values-title">Nilai-Nilai yang Kami Junjung</h3>
+                    <div class="story-values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4 class="value-title">Empati</h4>
+                            <p class="value-desc">Pemahaman mendalam dari pengalaman pribadi</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="value-title">Komunitas</h4>
+                            <p class="value-desc">Saling mendukung & menguatkan sesama survivor</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="value-title">Keamanan</h4>
+                            <p class="value-desc">Ruang aman tanpa judgment dan stigma</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4 class="value-title">Pertumbuhan</h4>
+                            <p class="value-desc">Transformasi luka menjadi kekuatan bersama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section feature">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Fitur yang Dirancang dengan Empati</h2>
+                    <p class="section-subtitle">
+                        Setiap fitur dirancang berdasarkan kebutuhan nyata para survivor
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="feature-title">AI Companion - Selalu Ada, Kapan Pun Dibutuhkan</h3>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="feature-description">
+                                Temukan teman bicara AI yang selalu ada 24/7. Ruang aman untuk berbagi cerita tanpa dihakimi, 
+                                dengan privasi terjamin penuh. Setiap percakapan dirancang dengan empati mendalam untuk ketenanganmu.
+                            </p>
+                            <div class="feature-highlights">
+                                <span class="highlight">24/7 Available</span>
+                                <span class="highlight">Empathetic Response</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="chat-mockup" role="img" aria-label="AI chat interface demonstration">
+                                <div class="chat-header">
+                                    <div class="chat-avatar" aria-hidden="true">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Akasha AI</strong>
+                                        <div style="font-size: 0.8rem; color: var(--color-text-muted);">Selalu online</div>
+                                    </div>
+                                </div>
+                                <div class="chat-bubble">Halo, bagaimana perasaanmu hari ini?</div>
+                                <div class="chat-bubble">Aku di sini untuk mendengarkan ceritamu.</div>
+                                <div class="chat-bubble">Tidak ada yang perlu kamu sembunyikan di sini. 💙</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="feature-icon">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="feature-title">Safe Community - Temukan Mereka yang Memahamimu</h3>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="feature-description">
+                                Bergabung dalam komunitas survivor yang saling memahami. Bagikan pengalaman secara anonim, 
+                                temukan dukungan dari mereka yang pernah merasakan hal serupa. Moderasi ketat menjaga keamanan ruang ini.
+                            </p>
+                            <div class="feature-highlights">
+                                <span class="highlight">Moderated</span>
+                                <span class="highlight">Anonymous Option</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="community-grid" role="img" aria-label="Community forum categories">
+                                <div class="forum-card stagger-item">
+                                    <h4>Survivor Stories</h4>
+                                    <p>Bagikan dan baca kisah inspiratif...</p>
+                                </div>
+                                <div class="forum-card stagger-item">
+                                    <h4>Daily Support</h4>
+                                    <p>Dukungan harian dari komunitas...</p>
+                                </div>
+                                <div class="forum-card stagger-item">
+                                    <h4>Safe Space</h4>
+                                    <p>Diskusi yang dimoderasi ketat...</p>
+                                </div>
+                                <div class="forum-card stagger-item">
+                                    <h4>Anonymous</h4>
+                                    <p>Privasi terjaga sepenuhnya...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="feature-icon">
+                                <i class="fas fa-seedling" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="feature-title">Personal Growth - Lacak Progres, Rayakan Kemenangan Kecil</h3>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="feature-description">
+                                Pantau perjalanan pemulihan dengan jurnal pribadi dan tracker mood harian. Visualisasi progres 
+                                membantu melihat perkembangan positif. Rayakan setiap langkah kecil menuju kesehatan mental yang lebih baik.
+                            </p>
+                            <div class="feature-highlights">
+                                <span class="highlight">Private</span>
+                                <span class="highlight">Progress Tracking</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="growth-dashboard" role="img" aria-label="Personal growth tracking dashboard">
+                                <h4 style="text-align: center; margin-bottom: 20px;">Dashboard Personal</h4>
+                                <div class="mood-chart" aria-label="Mood tracking visualization">
+                                    <div class="mood-line" aria-hidden="true"></div>
+                                </div>
+                                <div style="text-align: center; color: var(--color-text-muted);">
+                                    <small>📊 Progress Mood Tracker</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="feature-title">Educational Content - Belajar, Pahami, Berubah</h3>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="feature-description">
+                                Akses artikel, video, dan workshop yang dirancang psikolog profesional. Konten edukatif 
+                                memberikan pemahaman mendalam tentang kesehatan mental. Pelajari strategi coping yang terbukti efektif.
+                            </p>
+                            <div class="feature-highlights">
+                                <span class="highlight">Expert Content</span>
+                                <span class="highlight">Self-Learning</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="education-preview" role="img" aria-label="Educational content preview">
+                                <div class="content-grid">
+                                    <div class="content-item">
+                                        <div class="content-icon">📖</div>
+                                        <span>Articles</span>
+                                    </div>
+                                    <div class="content-item">
+                                        <div class="content-icon">🎥</div>
+                                        <span>Videos</span>
+                                    </div>
+                                    <div class="content-item">
+                                        <div class="content-icon">🎯</div>
+                                        <span>Workshop</span>
+                                    </div>
+                                    <div class="content-item">
+                                        <div class="content-icon">💡</div>
+                                        <span>Tips</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="mission-section section">
+            <div class="container">
+                <div class="mission-content">
+                    <div class="mission-text fade-in">
+                        <h2 class="section-title">Sebuah Misi, Bukan Sekadar Kode</h2>
+                        
+                        <div class="mission-intro">
+                            <p>
+                                Project Akasha lahir dari sebuah keyakinan: teknologi bisa menjadi kekuatan untuk kebaikan. 
+                                Misi kami adalah membangun alat yang memberdayakan, menciptakan ruang yang aman, 
+                                dan membuktikan bahwa dari pengalaman tergelap sekalipun, kita bisa bangkit untuk menolong sesama.
+                            </p>
+                            <p>
+                                Ini lebih dari sekadar aplikasi, ini adalah sebuah gerakan. 
+                                Setiap fitur dirancang dengan empati, setiap detail dibuat dengan cinta.
+                            </p>
+                        </div>
+                        
+                        <div class="mission-block">
+                            <h3><i class="fas fa-eye" aria-hidden="true"></i> Visi</h3>
+                            <p>
+                                Menciptakan dunia di mana setiap survivor bullying dan trauma memiliki 
+                                akses ke dukungan kesehatan mental yang berkualitas, aman, dan dapat 
+                                diakses kapan saja mereka membutuhkannya.
+                            </p>
+                        </div>
+
+                        <div class="mission-block">
+                            <h3><i class="fas fa-heart" aria-hidden="true"></i> Misi</h3>
+                            <ul class="mission-list">
+                                <li>Menyediakan platform digital yang aman untuk healing dan recovery</li>
+                                <li>Membangun komunitas supportif yang saling menguatkan</li>
+                                <li>Mengintegrasikan teknologi AI dengan pendekatan empati</li>
+                                <li>Memberikan akses mudah ke sumber daya kesehatan mental</li>
+                                <li>Mengurangi stigma seputar kesehatan mental di Indonesia</li>
+                            </ul>
+                        </div>
+
+                        <div class="signature" th:text="'- ' + ${developerName}">- Tim Project Akasha</div>
+                    </div>
+
+                    <div class="mission-visual fade-in">
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value-icon">🛡️</div>
+                                <h4>Safety First</h4>
+                                <p>Keamanan dan privasi adalah prioritas utama</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">💙</div>
+                                <h4>Empathy Driven</h4>
+                                <p>Setiap interaksi didasari dengan empati</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">🤝</div>
+                                <h4>Community Focused</h4>
+                                <p>Kekuatan komunitas yang saling mendukung</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">🚀</div>
+                                <h4>Innovation</h4>
+                                <p>Teknologi terdepan untuk kesehatan mental</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section final-cta section" aria-labelledby="cta-heading">
+            <div class="container">
+                <div class="cta-content fade-in">
+                    <h2 id="cta-heading" class="cta-title">Siap Mengambil Langkah Pertama?</h2>
+                    <p class="cta-subtitle">
+                        Perjalanan seribu mil dimulai dengan satu langkah.<br>
+                        Bergabunglah dengan ribuan survivor lainnya yang telah memilih 
+                        untuk tumbuh dan berkembang bersama Project Akasha.
+                    </p>
+                    
+                    <div class="cta-buttons" role="group" aria-label="Primary action buttons">
+                        <a href="#story" class="btn-primary large" 
+                           aria-label="Learn more about Project Akasha">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                    
+                    <div class="app-buttons" role="group" aria-label="Download and source options" style="margin-top: 2rem;">
+                        <a href="#" class="app-button btn-secondary" 
+                           aria-label="Download Project Akasha from Google Play Store"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            <i class="fab fa-google-play" aria-hidden="true"></i>
+                            Download di Google Play
+                        </a>
+                        <a href="https://github.com/your-username/project-akasha" class="app-button btn-secondary" 
+                           aria-label="View Project Akasha source code on GitHub"
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            Lihat di GitHub
+                        </a>
+                    </div>
+
+                    <div class="cta-reassurance hero-trust-indicators">
+                        <div class="reassurance-item trust-item">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                            <span>100% Confidential</span>
+                        </div>
+                        <div class="reassurance-item trust-item">
+                            <i class="fas fa-gift" aria-hidden="true"></i>
+                            <span>Free to Start</span>
+                        </div>
+                        <div class="reassurance-item trust-item">
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
+                            <span>No Judgment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Section -->
+        <section class="developer-section">
+            <div class="container">
+                <div class="developer-content">
+                    <div class="developer-info">
+                        <h2 class="section-title">Dari Pengembang</h2>
+                        <div class="developer-message">
+                            <p>
+                                <strong>Hi, saya <span th:text="${developerName}">Hanzama</span></strong> 👋
+                            </p>
+                            <p>
+                                Project Akasha adalah lebih dari sekadar aplikasi bagi saya. 
+                                Ini adalah manifestasi dari perjalanan personal saya dari korban bullying 
+                                menjadi seseorang yang memilih untuk bangkit dan membantu orang lain.
+                            </p>
+                            <p>
+                                Setiap baris kode yang saya tulis, setiap fitur yang saya rancang, 
+                                didasari dengan pemahaman mendalam tentang bagaimana rasanya berada 
+                                di titik terendah dalam hidup. Dan yang terpenting, bagaimana rasanya 
+                                membutuhkan seseorang yang benar-benar memahami.
+                            </p>
+                            <p>
+                                <em>"Sometimes the people who understand you best are those who have walked 
+                                the same path."</em>
+                            </p>
+                        </div>
+                        
+                        <div class="developer-contact">
+                            <a href="mailto:hello@projectakasha.com" class="developer-link">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                Kirim Pesan Personal
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="developer-visual">
+                        <div class="code-snippet">
+                            <div class="code-header">
+                                <span class="code-title">project-akasha.js</span>
+                                <div class="code-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="code-content">
+                                <div class="code-line">
+                                    <span class="code-comment">// From personal pain to digital healing</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span> 
+                                    <span class="code-variable">motivation</span> = 
+                                    <span class="code-string">'helping others heal'</span>;
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span> 
+                                    <span class="code-variable">purpose</span> = 
+                                    <span class="code-string">'creating safe spaces'</span>;
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">function</span> 
+                                    <span class="code-function">transformPain</span>() {
+                                </div>
+                                <div class="code-line">
+                                    &nbsp;&nbsp;<span class="code-keyword">return</span> 
+                                    <span class="code-string">'strength + empathy + code'</span>;
+                                </div>
+                                <div class="code-line">}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

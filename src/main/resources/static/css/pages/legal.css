@@ -1,0 +1,144 @@
+/* =============================================================================
+   PROJECT AKASHA - LEGAL PAGES MAIN COORDINATOR
+   Legal pages CSS coordinator - imports all legal section files
+   ============================================================================= */
+
+/* Import all legal page sections */
+@import url('./legal/legal-about.css');
+@import url('./legal/legal-help.css');
+
+/* ======= LEGAL PAGES GENERAL STYLES ======= */
+.legal-page {
+    min-height: calc(100vh - 72px);
+}
+
+.legal-content-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-4xl) var(--space-lg);
+}
+
+/* ======= PAGE HERO SECTION ======= */
+.page-hero {
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
+    position: relative;
+    padding: var(--space-4xl) 0 var(--space-3xl);
+    text-align: center;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(74, 144, 226, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.page-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero .hero-title {
+    font-size: clamp(2.25rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ======= CONTENT SECTIONS ======= */
+.content-section {
+    padding: var(--space-4xl) 0;
+}
+
+.content-section:nth-child(even) {
+    background: var(--color-gray-50);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ======= FADE IN ANIMATIONS ======= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.2s; }
+.fade-in:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+    .legal-content-container {
+        padding: var(--space-3xl) var(--space-md);
+    }
+    
+    .content-section {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-2xl);
+    }
+    
+    .page-hero {
+        padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-content-container {
+        padding: var(--space-2xl) var(--space-sm);
+    }
+    
+    .content-section {
+        padding: var(--space-2xl) 0;
+    }
+}

@@ -1,0 +1,88 @@
+<!-- Header Fragment -->
+<header th:fragment="header" class="main-header" role="banner">
+    <div class="container">
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+            <!-- Logo & Brand -->
+            <div class="nav-brand">
+                <a href="/" th:href="@{/}" class="brand-link" aria-label="Project Akasha Homepage">
+                    <img th:src="@{/images/logo.png}" 
+                         alt="Project Akasha Logo" 
+                         class="brand-logo"
+                         width="40" 
+                         height="40"
+                         loading="lazy">
+                    <span class="brand-name">Project Akasha</span>
+                </a>
+            </div>
+
+            <!-- Main Navigation Links -->
+            <div class="nav-menu">
+                <ul class="nav-links" role="menubar">
+                    <li role="none">
+                        <a href="/" th:href="@{/}" role="menuitem"
+                           th:classappend="${currentPath == '/' ? 'nav-active' : ''}">
+                            Beranda
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/about" th:href="@{/about}" role="menuitem"
+                           th:classappend="${currentPath == '/about' ? 'nav-active' : ''}">
+                            Tentang Kami
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/help" th:href="@{/help}" role="menuitem"
+                           th:classappend="${currentPath == '/help' ? 'nav-active' : ''}">
+                            Bantuan
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="/contact" th:href="@{/contact}" role="menuitem"
+                           th:classappend="${currentPath == '/contact' ? 'nav-active' : ''}">
+                            Kontak
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="navbar-actions">
+                <!-- Start Journey Button -->
+                <a href="#final-cta" 
+                   class="nav-button-primary scroll-to" 
+                   role="button" 
+                   aria-label="Start your mental health journey">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    <span>Mulai Perjalanan</span>
+                </a>
+
+                <!-- Admin Login Button -->
+                <a href="/admin/login" th:href="@{/admin/login}" 
+                   class="nav-button-secondary" 
+                   aria-label="Admin Login">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Admin Login</span>
+                </a>
+                
+                <!-- Dark Mode Toggle -->
+                <button type="button" 
+                        id="theme-toggle" 
+                        class="theme-toggle-btn" 
+                        aria-label="Toggle dark mode"
+                        title="Ganti tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button type="button" 
+                    class="mobile-menu-toggle" 
+                    aria-label="Toggle mobile menu" 
+                    aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </div>
+</header>

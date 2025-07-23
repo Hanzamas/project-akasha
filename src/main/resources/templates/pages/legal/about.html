@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id" 
+      xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/main :: layout(~{::title}, ~{::meta}, ~{::links}, ~{::scripts}, ~{::main})}"
+>
+<head>
+    <title th:text="${pageTitle}">Tentang Project Akasha - Platform Kesehatan Mental</title>
+    
+    <!-- Page-specific meta tags -->
+    <th:block th:fragment="meta">
+        <meta name="description" th:content="${pageDescription}">
+        <meta name="keywords" content="tentang kami, project akasha, kesehatan mental, platform online, visi misi">
+        <meta name="author" content="Project Akasha">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Tentang Project Akasha - Platform Kesehatan Mental">
+        <meta property="og:description" content="Kisah di balik Project Akasha dan misi kami untuk menciptakan ruang aman digital bagi kesehatan mental.">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Tentang Project Akasha - Platform Kesehatan Mental">
+        <meta name="twitter:description" content="Kisah di balik Project Akasha dan misi kami untuk menciptakan ruang aman digital bagi kesehatan mental.">
+    </th:block>
+    
+    <!-- Legal Page Specific CSS -->
+    <th:block th:fragment="links">
+        <link rel="stylesheet" th:href="@{/css/pages/legal.css}">
+    </th:block>
+    
+    <!-- Legal Page Specific JavaScript -->
+    <th:block th:fragment="scripts">
+        <th:block th:replace="~{components/scripts :: legal-scripts}"></th:block>
+    </th:block>
+</head>
+<body>
+    <main th:fragment="main">
+        <!-- Hero Section -->
+        <section class="hero-section page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Tentang Project Akasha</h1>
+                    <p class="hero-subtitle">
+                        Lebih dari sekadar aplikasi - ini adalah komitmen untuk menciptakan dunia 
+                        di mana tidak ada seorang pun yang merasa sendirian dalam perjalanan kesehatan mental mereka.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="content-section story-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Lahir dari Sebuah Luka, Tumbuh untuk Menyembuhkan</h2>
+                </div>
+                
+                <div class="story-content">
+                    <div class="story-text">
+                        <p class="story-paragraph">
+                            Project Akasha lahir dari pengalaman yang mungkin tidak asing bagi banyak dari kita - 
+                            pengalaman menjadi korban perundungan yang meninggalkan luka mendalam. Saat itu, 
+                            saya merasakan bagaimana rasanya terjebak dalam kegelapan, merasa sendirian, 
+                            dan tidak tahu harus mencari bantuan ke mana.
+                        </p>
+                        
+                        <p class="story-paragraph">
+                            Dalam momen-momen tergelap itu, saya menyadari betapa pentingnya memiliki ruang yang aman - 
+                            tempat di mana kita bisa berbicara tanpa takut dihakimi, tempat di mana kita bisa 
+                            menemukan dukungan dari orang-orang yang memahami perjuangan kita.
+                        </p>
+                        
+                        <p class="story-paragraph">
+                            Pengalaman itu mengubah hidup saya. Dari korban, saya bertekad untuk menjadi bagian 
+                            dari solusi. Project Akasha adalah manifestasi dari tekad itu - sebuah platform 
+                            digital yang saya ciptakan tidak hanya untuk diri saya, tetapi untuk setiap jiwa 
+                            yang pernah merasa terpuruk dan membutuhkan harapan.
+                        </p>
+                        
+                        <p class="story-paragraph">
+                            Setiap fitur dalam aplikasi ini dirancang berdasarkan pengalaman nyata dan pemahaman 
+                            mendalam tentang apa yang benar-benar dibutuhkan seseorang dalam perjalanan pemulihan 
+                            kesehatan mental. Ini bukan sekadar proyek teknologi - ini adalah misi personal 
+                            untuk memastikan tidak ada yang harus merasakan kesendirian seperti yang pernah saya alami.
+                        </p>
+                    </div>
+                    
+                    <div class="story-visual">
+                        <div class="story-image">
+                            <img th:src="@{/images/about-story.jpg}" 
+                                 alt="Ilustrasi perjalanan dari kegelapan menuju cahaya"
+                                 class="story-img"
+                                 loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Section -->
+        <section class="content-section vision-mission-section">
+            <div class="container">
+                <div class="vm-grid">
+                    <div class="vision-card">
+                        <div class="vm-icon">🌟</div>
+                        <h3 class="vm-title">Visi Kami</h3>
+                        <p class="vm-description" th:text="${visionStatement}">
+                            Menciptakan sebuah dunia di mana tidak ada seorang pun yang harus merasa sendirian 
+                            dalam perjuangan kesehatan mental mereka, dan setiap orang memiliki akses ke 
+                            dukungan yang mereka butuhkan untuk tumbuh dan pulih.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="vm-icon">🎯</div>
+                        <h3 class="vm-title">Misi Kami</h3>
+                        <p class="vm-description" th:text="${missionStatement}">
+                            Membangun ruang aman digital untuk kesehatan mental melalui teknologi yang empati dan komunitas yang suportif.
+                        </p>
+                        <ul class="mission-list">
+                            <li>Menyediakan alat bantu digital yang suportif dan mudah diakses</li>
+                            <li>Membangun komunitas online yang aman dan bebas dari penghakiman</li>
+                            <li>Menyebarkan edukasi untuk meningkatkan kesadaran tentang kesehatan mental</li>
+                            <li>Memberikan dukungan 24/7 melalui AI Companion yang empati</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="content-section values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nilai-Nilai Kami</h2>
+                    <p class="section-subtitle">
+                        Prinsip-prinsip yang memandu setiap keputusan dan fitur dalam Project Akasha
+                    </p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3 class="value-title">Empati</h3>
+                        <p class="value-description">
+                            Kami mendengarkan dengan hati dan memahami setiap perjuangan yang Anda alami.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🔒</div>
+                        <h3 class="value-title">Kerahasiaan</h3>
+                        <p class="value-description">
+                            Privasi Anda adalah prioritas utama kami. Data personal Anda adalah milik Anda sepenuhnya.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🛡️</div>
+                        <h3 class="value-title">Keamanan</h3>
+                        <p class="value-description">
+                            Kami menciptakan ruang yang aman secara proaktif, bebas dari intimidasi dan penghakiman.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3 class="value-title">Dukungan</h3>
+                        <p class="value-description">
+                            Kami percaya pada kekuatan saling mendukung dan tumbuh bersama sebagai komunitas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="content-section team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Sebuah Misi Personal</h2>
+                </div>
+                
+                <div class="team-content">
+                    <div class="founder-profile">
+                        <div class="founder-image">
+                            <img th:src="@{/images/founder-avatar.jpg}" 
+                                 alt="Foto profil founder Project Akasha"
+                                 class="founder-img"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="founder-info">
+                            <h3 class="founder-name" th:text="${developerName}">Hanzama</h3>
+                            <p class="founder-title">Founder & Developer Project Akasha</p>
+                            
+                            <div class="founder-message">
+                                <p>
+                                    "Sebagai seseorang yang pernah merasakan bagaimana sulitnya mencari bantuan 
+                                    ketika berada di titik terendah, saya berkomitmen untuk memastikan bahwa 
+                                    Project Akasha menjadi tempat yang benar-benar aman dan suportif."
+                                </p>
+                                
+                                <p>
+                                    "Setiap baris kode yang saya tulis, setiap fitur yang saya kembangkan, 
+                                    dan setiap keputusan desain yang saya buat selalu didasari oleh satu 
+                                    pertanyaan sederhana: 'Apakah ini akan membantu seseorang yang sedang 
+                                    berjuang seperti dulu saya berjuang?'"
+                                </p>
+                                
+                                <p>
+                                    "Project Akasha bukan hanya proyek teknologi bagi saya - ini adalah 
+                                    dedikasi hidup untuk memastikan tidak ada yang merasa sendirian dalam 
+                                    perjalanan kesehatan mental mereka."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="content-section cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Mari Tumbuh Bersama</h2>
+                    <p class="cta-description">
+                        Project Akasha adalah lebih dari sekadar aplikasi - ini adalah gerakan untuk 
+                        menciptakan dunia yang lebih peduli dan suportif. Bergabunglah dengan ribuan 
+                        pengguna lain yang telah menemukan kekuatan dalam kebersamaan.
+                    </p>
+                    
+                    <p class="cta-description">
+                        Setiap cerita yang Anda bagikan, setiap dukungan yang Anda berikan, dan setiap 
+                        langkah kecil yang Anda ambil menuju pemulihan tidak hanya membantu diri Anda 
+                        sendiri, tetapi juga menginspirasi orang lain untuk terus melangkah.
+                    </p>
+                    
+                    <div class="cta-actions">
+                        <a href="/" th:href="@{/}" class="cta-primary">Mulai Perjalanan Anda</a>
+                        <a href="/help" th:href="@{/help}" class="cta-secondary">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

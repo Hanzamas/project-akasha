@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id" 
+      xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/main :: layout(~{::title}, ~{::meta}, ~{::links}, ~{::scripts}, ~{::main})}"
+>
+<head>
+    <title th:text="${pageTitle}">Pusat Bantuan & FAQ - Project Akasha</title>
+    
+    <!-- Page-specific meta tags -->
+    <th:block th:fragment="meta">
+        <meta name="description" th:content="${pageDescription}">
+        <meta name="keywords" content="bantuan, faq, project akasha, kesehatan mental, pertanyaan umum, dukungan">
+        <meta name="author" content="Project Akasha">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Pusat Bantuan & FAQ - Project Akasha">
+        <meta property="og:description" content="Temukan jawaban untuk pertanyaan umum tentang Project Akasha dan cara menggunakan platform kesehatan mental kami.">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Pusat Bantuan & FAQ - Project Akasha">
+        <meta name="twitter:description" content="Temukan jawaban untuk pertanyaan umum tentang Project Akasha dan cara menggunakan platform kesehatan mental kami.">
+    </th:block>
+    
+    <!-- Legal Page Specific CSS -->
+    <th:block th:fragment="links">
+        <link rel="stylesheet" th:href="@{/css/pages/legal.css}">
+    </th:block>
+    
+    <!-- Legal Page Specific JavaScript -->
+    <th:block th:fragment="scripts">
+        <th:block th:replace="~{components/scripts :: legal-scripts}"></th:block>
+    </th:block>
+</head>
+<body>
+    <main th:fragment="main">
+        <!-- Hero Section -->
+        <section class="hero-section page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Pusat Bantuan & FAQ</h1>
+                    <p class="hero-subtitle">
+                        Temukan jawaban untuk semua pertanyaan Anda tentang Project Akasha 
+                        dan cara menggunakan platform kesehatan mental kami dengan aman.
+                    </p>
+                    
+                    <div class="hero-search">
+                        <div class="search-box">
+                            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                            <input type="text" id="help-search" placeholder="Cari bantuan atau FAQ..." 
+                                   aria-label="Cari bantuan atau FAQ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="quick-links-section">
+            <div class="container">
+                <h2 class="section-title">Bantuan Cepat</h2>
+                <div class="quick-links-grid">
+                    <a href="#getting-started" class="quick-link-card">
+                        <div class="quick-link-icon">🚀</div>
+                        <h3>Memulai</h3>
+                        <p>Panduan untuk pengguna baru</p>
+                    </a>
+                    
+                    <a href="#account-privacy" class="quick-link-card">
+                        <div class="quick-link-icon">🔒</div>
+                        <h3>Akun & Privasi</h3>
+                        <p>Keamanan dan pengaturan akun</p>
+                    </a>
+                    
+                    <a href="#features" class="quick-link-card">
+                        <div class="quick-link-icon">⚡</div>
+                        <h3>Fitur Platform</h3>
+                        <p>Cara menggunakan semua fitur</p>
+                    </a>
+                    
+                    <a href="#emergency" class="quick-link-card urgent">
+                        <div class="quick-link-icon">🚨</div>
+                        <h3>Darurat</h3>
+                        <p>Bantuan segera tersedia</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Sections -->
+        <section class="faq-section">
+            <div class="container">
+                <!-- Getting Started FAQ -->
+                <div id="getting-started" class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                        Memulai dengan Project Akasha
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Apa itu Project Akasha dan bagaimana bisa membantu saya?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Project Akasha adalah platform kesehatan mental digital yang dirancang khusus 
+                                untuk para survivor bullying dan trauma. Kami menyediakan AI companion yang empati, 
+                                komunitas yang aman, tools untuk personal growth, dan konten edukatif yang membantu 
+                                Anda dalam perjalanan recovery.
+                            </p>
+                            <p>
+                                Platform ini lahir dari pengalaman personal dan dibangun dengan pemahaman mendalam 
+                                tentang apa yang benar-benar dibutuhkan seseorang yang sedang berjuang dengan 
+                                kesehatan mental mereka.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bagaimana cara mendaftar dan apakah gratis?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Pendaftaran di Project Akasha sangat mudah dan <strong>sepenuhnya gratis</strong>:
+                            </p>
+                            <ol>
+                                <li>Klik tombol "Mulai Sekarang" di halaman utama</li>
+                                <li>Isi informasi dasar (email, nama, dan password)</li>
+                                <li>Verifikasi email Anda</li>
+                                <li>Selesaikan onboarding singkat untuk personalisasi pengalaman</li>
+                            </ol>
+                            <p>
+                                Kami berkomitmen untuk memberikan akses gratis ke fitur-fitur dasar karena 
+                                kami percaya bahwa bantuan kesehatan mental harus dapat diakses oleh semua orang.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Apakah saya perlu memberikan informasi personal yang sensitif?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <strong>Tidak, Anda tidak diwajibkan memberikan informasi sensitif.</strong> 
+                                Project Akasha dirancang dengan prinsip "privacy by design":
+                            </p>
+                            <ul>
+                                <li>Data minimal: Hanya meminta informasi yang benar-benar diperlukan</li>
+                                <li>Kontrol penuh: Anda memutuskan informasi apa yang ingin dibagikan</li>
+                                <li>Pseudonym friendly: Anda bisa menggunakan nama samaran</li>
+                                <li>Data sensitif opsional: Informasi kesehatan mental bersifat sukarela</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account & Privacy FAQ -->
+                <div id="account-privacy" class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        Akun & Privasi
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Seberapa aman data pribadi saya di Project Akasha?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Keamanan data Anda adalah prioritas utama kami. Kami menggunakan:
+                            </p>
+                            <ul>
+                                <li><strong>Enkripsi End-to-End:</strong> Semua data sensitif dienkripsi</li>
+                                <li><strong>Server Aman:</strong> Hosting di infrastruktur bersertifikat internasional</li>
+                                <li><strong>Access Control:</strong> Hanya Anda yang bisa mengakses data personal</li>
+                                <li><strong>Audit Regular:</strong> Pemeriksaan keamanan berkala</li>
+                                <li><strong>Compliance:</strong> Mengikuti standar perlindungan data internasional</li>
+                            </ul>
+                            <p>
+                                Kami juga berkomitmen untuk tidak menjual atau membagikan data Anda kepada pihak ketiga 
+                                untuk tujuan komersial.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bisakah saya menggunakan platform ini secara anonim?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Ya, kami sangat mendukung penggunaan anonim untuk kenyamanan dan keamanan Anda:
+                            </p>
+                            <ul>
+                                <li>Gunakan nama samaran/pseudonym saat mendaftar</li>
+                                <li>Tidak perlu foto profil atau informasi identitas nyata</li>
+                                <li>Opsi "Anonymous Mode" di forum komunitas</li>
+                                <li>Chat dengan AI tanpa tracking identitas</li>
+                            </ul>
+                            <p>
+                                Kami memahami bahwa untuk topik sensitif seperti kesehatan mental, 
+                                anonimitas sering kali penting untuk membuat pengguna merasa aman berbagi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bagaimana cara menghapus akun saya jika tidak ingin menggunakan platform ini lagi?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Anda memiliki kontrol penuh atas data Anda. Untuk menghapus akun:
+                            </p>
+                            <ol>
+                                <li>Masuk ke Pengaturan Akun</li>
+                                <li>Pilih "Kelola Akun" → "Hapus Akun"</li>
+                                <li>Konfirmasi dengan memasukkan password</li>
+                                <li>Pilih opsi penghapusan data (complete deletion atau anonymization)</li>
+                            </ol>
+                            <p>
+                                <strong>Penting:</strong> Penghapusan akun bersifat permanen. Namun, jika Anda berubah pikiran, 
+                                tim support kami tersedia untuk membantu memulihkan akun dalam 30 hari pertama.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features FAQ -->
+                <div id="features" class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+                        Fitur Platform
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bagaimana cara menggunakan AI Companion dan seberapa akurat responnya?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                AI Companion kami dilatih khusus untuk memberikan respons yang empati dan suportif:
+                            </p>
+                            <ul>
+                                <li><strong>Cara Menggunakan:</strong> Cukup mulai chat seperti berbicara dengan teman</li>
+                                <li><strong>Training:</strong> Dilatih dengan data kesehatan mental dan teknik konseling</li>
+                                <li><strong>Limitations:</strong> Bukan pengganti terapis profesional</li>
+                                <li><strong>24/7 Available:</strong> Selalu ada ketika Anda membutuhkan</li>
+                                <li><strong>Contextual:</strong> Mengingat percakapan sebelumnya untuk respons yang konsisten</li>
+                            </ul>
+                            <p>
+                                <em>Catatan: AI Companion dirancang untuk memberikan dukungan emosional dan informasi umum. 
+                                Untuk kondisi serius, kami selalu merekomendasikan konsultasi dengan profesional kesehatan mental.</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bagaimana forum komunitas dimoderasi untuk memastikan keamanan?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Keamanan komunitas adalah prioritas utama. Sistem moderasi kami mencakup:
+                            </p>
+                            <ul>
+                                <li><strong>AI Moderation:</strong> Deteksi otomatis konten berbahaya atau toxic</li>
+                                <li><strong>Human Moderators:</strong> Tim moderator berpengalaman memantau 24/7</li>
+                                <li><strong>Community Guidelines:</strong> Aturan jelas yang mudah dipahami</li>
+                                <li><strong>Report System:</strong> Mudah melaporkan konten atau perilaku yang tidak pantas</li>
+                                <li><strong>Strike System:</strong> Peringatan bertingkat untuk pelanggaran</li>
+                                <li><strong>Safe Spaces:</strong> Area khusus untuk topik-topik sensitif</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Apa itu Personal Growth Tools dan bagaimana cara menggunakannya?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Personal Growth Tools adalah fitur-fitur untuk membantu Anda memantau dan 
+                                meningkatkan kesehatan mental:
+                            </p>
+                            <ul>
+                                <li><strong>Mood Tracker:</strong> Catat mood harian dengan insights dan patterns</li>
+                                <li><strong>Journal Digital:</strong> Tempat aman untuk menulis pikiran dan perasaan</li>
+                                <li><strong>Progress Monitoring:</strong> Visualisasi perkembangan recovery Anda</li>
+                                <li><strong>Goal Setting:</strong> Tetapkan dan track tujuan kesehatan mental</li>
+                                <li><strong>Mindfulness Exercises:</strong> Guided meditation dan breathing exercises</li>
+                            </ul>
+                            <p>
+                                Semua data personal growth ini bersifat privat dan hanya bisa diakses oleh Anda. 
+                                Kami menggunakan enkripsi untuk memastikan kerahasiaan jurnal dan tracking Anda.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency FAQ -->
+                <div id="emergency" class="faq-category emergency-section">
+                    <h2 class="category-title">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        Situasi Darurat
+                    </h2>
+                    
+                    <div class="emergency-notice">
+                        <h3><i class="fas fa-heart" aria-hidden="true"></i> Jika Anda Dalam Krisis</h3>
+                        <p>
+                            Jika Anda mengalami pikiran untuk menyakiti diri sendiri atau orang lain, 
+                            <strong>segera hubungi layanan darurat profesional.</strong>
+                        </p>
+                        
+                        <div class="emergency-contacts">
+                            <div class="emergency-contact">
+                                <h4>🚨 Darurat Nasional</h4>
+                                <a href="tel:119" class="emergency-number">119</a>
+                                <p>Layanan darurat 24/7</p>
+                            </div>
+                            
+                            <div class="emergency-contact">
+                                <h4>🧠 Kesehatan Mental</h4>
+                                <a href="tel:021-7256526" class="emergency-number" th:text="${mentalHealthHotline}">021-7256526</a>
+                                <p>Hotline kesehatan mental</p>
+                            </div>
+                            
+                            <div class="emergency-contact">
+                                <h4>💙 Pencegahan Bunuh Diri</h4>
+                                <a href="tel:021-31904343" class="emergency-number" th:text="${suicidePreventionHotline}">021-3190-4343</a>
+                                <p>Support pencegahan bunuh diri</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Apa yang harus saya lakukan jika merasa sangat down atau memiliki pikiran yang mengkhawatirkan?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Langkah-langkah yang bisa Anda lakukan:</strong></p>
+                            <ol>
+                                <li><strong>Jangan sendirian:</strong> Hubungi seseorang yang Anda percayai</li>
+                                <li><strong>Hubungi profesional:</strong> Gunakan nomor darurat di atas</li>
+                                <li><strong>Datangi IGD terdekat:</strong> Jika merasa dalam bahaya langsung</li>
+                                <li><strong>Gunakan AI Companion:</strong> Untuk dukungan sementara sambil mencari bantuan profesional</li>
+                                <li><strong>Hubungi support kami:</strong> <a href="mailto:emergency@projectakasha.com">emergency@projectakasha.com</a></li>
+                            </ol>
+                            <p><em>Ingat: Meminta bantuan adalah tanda kekuatan, bukan kelemahan.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Bagaimana jika saya khawatir tentang teman atau anggota komunitas yang mungkin dalam bahaya?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Jika Anda khawatir tentang keselamatan seseorang:</p>
+                            <ul>
+                                <li><strong>Report segera:</strong> Gunakan fitur "Report Concern" di platform</li>
+                                <li><strong>Hubungi moderator:</strong> Tim kami akan segera menindaklanjuti</li>
+                                <li><strong>Berikan dukungan:</strong> Tapi jangan mencoba menjadi "penyelamat" tunggal</li>
+                                <li><strong>Sarankan bantuan profesional:</strong> Berikan informasi kontak darurat</li>
+                                <li><strong>Jaga diri Anda juga:</strong> Helping others bisa menguras energi emosional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support Section -->
+        <section class="support-section">
+            <div class="container">
+                <div class="support-content">
+                    <h2 class="cta-title">Masih Ada Pertanyaan?</h2>
+                    <p class="cta-description">
+                        Tim support kami siap membantu Anda 24/7. Jangan ragu untuk menghubungi kami 
+                        melalui berbagai channel yang tersedia.
+                    </p>
+                    
+                    <div class="support-options">
+                        <div class="support-option">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <h3>Email Support</h3>
+                            <p><a href="mailto:support@projectakasha.com" th:text="${supportEmail}">support@projectakasha.com</a></p>
+                            <small th:text="${responseTime}">Respon dalam 1-2 hari kerja</small>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                            <h3>Live Chat</h3>
+                            <p>Chat langsung dengan AI Companion</p>
+                            <small>Available 24/7</small>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <h3>Emergency</h3>
+                            <p>Untuk situasi darurat</p>
+                            <small>Gunakan nomor darurat di atas</small>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-actions">
+                        <a href="/contact" th:href="@{/contact}" class="cta-primary">Hubungi Support</a>
+                        <a href="mailto:support@projectakasha.com" class="cta-secondary">Email Kami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

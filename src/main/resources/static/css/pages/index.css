@@ -1,0 +1,75 @@
+/* =============================================================================
+   PROJECT AKASHA - INDEX PAGE MAIN COORDINATOR
+   Landing page CSS coordinator - imports all section files
+   ============================================================================= */
+
+/* Import all index page sections */
+@import url('./index/index-hero.css');
+@import url('./index/index-story.css'); 
+@import url('./index/index-features.css');
+@import url('./index/index-mission.css');
+@import url('./index/index-cta.css');
+@import url('./index/index-developer.css');
+
+/* ======= SECTION GENERAL STYLES ======= */
+.section {
+    padding: var(--space-4xl) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ======= FADE IN ANIMATIONS ======= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.2s; }
+.fade-in:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======= RESPONSIVE SECTION PADDING ======= */
+@media (max-width: 768px) {
+    .section {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-2xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: var(--space-2xl) 0;
+    }
+}

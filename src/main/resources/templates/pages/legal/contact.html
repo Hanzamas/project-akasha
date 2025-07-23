@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id" 
+      xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/main :: layout(~{::title}, ~{::meta}, ~{::links}, ~{::scripts}, ~{::main})}"
+>
+<head>
+    <title th:text="${pageTitle}">Hubungi Kami - Project Akasha</title>
+    
+    <!-- Page-specific meta tags -->
+    <th:block th:fragment="meta">
+        <meta name="description" th:content="${pageDescription}">
+        <meta name="keywords" content="kontak, hubungi kami, project akasha, dukungan, kerjasama">
+        <meta name="author" content="Project Akasha">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Hubungi Kami - Project Akasha">
+        <meta property="og:description" content="Hubungi tim Project Akasha untuk dukungan, pertanyaan, atau kerjasama dalam bidang kesehatan mental.">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Hubungi Kami - Project Akasha">
+        <meta name="twitter:description" content="Hubungi tim Project Akasha untuk dukungan, pertanyaan, atau kerjasama dalam bidang kesehatan mental.">
+    </th:block>
+    
+    <!-- Legal Page Specific CSS -->
+    <th:block th:fragment="links">
+        <link rel="stylesheet" th:href="@{/css/pages/legal.css}">
+    </th:block>
+    
+    <!-- Legal Page Specific JavaScript -->
+    <th:block th:fragment="scripts">
+        <th:block th:replace="~{components/scripts :: legal-scripts}"></th:block>
+    </th:block>
+</head>
+<body>
+    <main th:fragment="main">
+        <!-- Hero Section -->
+        <section class="hero-section page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hubungi Kami</h1>
+                    <p class="hero-subtitle">
+                        Kami di sini untuk mendengarkan, membantu, dan mendukung Anda. 
+                        Jangan ragu untuk menghubungi tim Project Akasha kapan saja.
+                    </p>
+                    
+                    <div class="hero-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>Respon Cepat</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span>Dengan Empati</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            <span>Confidential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Options Section -->
+        <section class="contact-options-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Cara Menghubungi Kami</h2>
+                    <p class="section-subtitle">
+                        Pilih channel komunikasi yang paling nyaman untuk Anda
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card primary">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Email Support</h3>
+                        <p class="card-description">
+                            Channel utama untuk pertanyaan umum, dukungan teknis, dan feedback
+                        </p>
+                        <div class="card-details">
+                            <a href="mailto:support@projectakasha.com" th:text="${generalEmail}" class="contact-link">hello@projectakasha.com</a>
+                            <small th:text="${businessHours}">Respon dalam 24 jam</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Technical Support</h3>
+                        <p class="card-description">
+                            Bantuan untuk masalah teknis, bug reports, dan troubleshooting
+                        </p>
+                        <div class="card-details">
+                            <a href="mailto:support@projectakasha.com" th:text="${supportEmail}" class="contact-link">support@projectakasha.com</a>
+                            <small>24-48 jam untuk technical issues</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Business Inquiries</h3>
+                        <p class="card-description">
+                            Kerjasama, partnership, dan peluang bisnis
+                        </p>
+                        <div class="card-details">
+                            <a href="mailto:business@projectakasha.com" th:text="${businessEmail}" class="contact-link">business@projectakasha.com</a>
+                            <small>3-5 hari kerja</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Media & Press</h3>
+                        <p class="card-description">
+                            Pertanyaan media, wawancara, dan press releases
+                        </p>
+                        <div class="card-details">
+                            <a href="mailto:media@projectakasha.com" th:text="${mediaEmail}" class="contact-link">media@projectakasha.com</a>
+                            <small>1-2 hari kerja</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contact Section -->
+        <section class="emergency-contact-section">
+            <div class="container">
+                <div class="emergency-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        Kontak Darurat
+                    </h2>
+                    <p class="emergency-subtitle">
+                        Jika Anda mengalami krisis atau membutuhkan bantuan segera
+                    </p>
+                </div>
+
+                <div class="emergency-grid">
+                    <div class="emergency-card">
+                        <div class="emergency-icon">🚨</div>
+                        <h3>Darurat Nasional</h3>
+                        <a href="tel:119" th:text="${emergencyNumber}" class="emergency-number">119</a>
+                        <p>Layanan darurat 24/7 untuk situasi mengancam jiwa</p>
+                    </div>
+
+                    <div class="emergency-card">
+                        <div class="emergency-icon">🧠</div>
+                        <h3>Kesehatan Mental</h3>
+                        <a href="tel:021-7256526" class="emergency-number">021-7256526</a>
+                        <p>Hotline khusus kesehatan mental dan konseling</p>
+                    </div>
+
+                    <div class="emergency-card">
+                        <div class="emergency-icon">💙</div>
+                        <h3>Pencegahan Bunuh Diri</h3>
+                        <a href="tel:021-31904343" class="emergency-number">021-3190-4343</a>
+                        <p>Support khusus pencegahan bunuh diri 24/7</p>
+                    </div>
+
+                    <div class="emergency-card">
+                        <div class="emergency-icon">📞</div>
+                        <h3>WhatsApp Crisis</h3>
+                        <a href="https://wa.me/6281234567890" class="emergency-number">+62 812-3456-7890</a>
+                        <p>Chat WhatsApp untuk crisis support</p>
+                    </div>
+                </div>
+
+                <div class="emergency-notice">
+                    <p>
+                        <strong>Ingat:</strong> Jika Anda atau seseorang yang Anda kenal dalam bahaya langsung, 
+                        segera hubungi layanan darurat profesional. Project Akasha bukanlah pengganti 
+                        layanan kesehatan mental profesional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h2 class="section-title">Kirim Pesan</h2>
+                        <p class="section-subtitle">
+                            Isi form di bawah ini dan kami akan merespon sesegera mungkin
+                        </p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" action="/contact/submit" method="post">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required
+                                   placeholder="Masukkan nama lengkap Anda">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required
+                                   placeholder="alamat@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Pilih kategori pesan</option>
+                                <option value="general">Pertanyaan Umum</option>
+                                <option value="technical">Masalah Teknis</option>
+                                <option value="feedback">Feedback & Saran</option>
+                                <option value="business">Business Inquiry</option>
+                                <option value="media">Media & Press</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="6" required
+                                      placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
+                            <small class="form-hint">
+                                Sertakan detail sebanyak mungkin agar kami bisa membantu dengan lebih baik
+                            </small>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span class="checkmark"></span>
+                                Saya telah membaca dan menyetujui 
+                                <a href="/privacy" target="_blank">Kebijakan Privasi</a>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Saya ingin menerima newsletter dan update terbaru dari Project Akasha
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Info Section -->
+        <section class="company-info-section">
+            <div class="container">
+                <div class="company-grid">
+                    <div class="company-details">
+                        <h3>Informasi Perusahaan</h3>
+                        <address class="company-address">
+                            <strong th:text="${companyName}">PT. Akasha Digital Indonesia</strong><br>
+                            <span th:text="${address}">Jakarta, Indonesia</span><br>
+                            12345
+                        </address>
+                        
+                        <div class="business-info">
+                            <p><strong>Jam Operasional:</strong><br>
+                            <span th:text="${businessHours}">Senin - Jumat, 09:00 - 17:00 WIB</span></p>
+                            
+                            <p><strong>Weekend Support:</strong><br>
+                            Emergency dan crisis support tetap tersedia 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="social-media">
+                        <h3>Ikuti Kami</h3>
+                        <p>Tetap terhubung untuk update dan konten inspiratif</p>
+                        
+                        <div class="social-links">
+                            <a href="" th:href="${instagramUrl}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span>Instagram</span>
+                            </a>
+                            
+                            <a href="" th:href="${twitterUrl}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                                <span>Twitter</span>
+                            </a>
+                            
+                            <a href="" th:href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            
+                            <a href="" th:href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Reference Section -->
+        <section class="faq-reference-section">
+            <div class="container">
+                <div class="faq-cta">
+                    <h2>Pertanyaan yang Sering Diajukan</h2>
+                    <p>
+                        Sebelum menghubungi kami, coba cek FAQ kami terlebih dahulu. 
+                        Mungkin jawaban yang Anda cari sudah tersedia di sana.
+                    </p>
+                    <a href="/help" class="btn-secondary">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        Lihat FAQ
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Message Section -->
+        <section class="developer-message-section">
+            <div class="container">
+                <div class="developer-card">
+                    <div class="developer-avatar">
+                        <img th:src="@{/images/developer-avatar.jpg}" alt="Developer Avatar" loading="lazy">
+                    </div>
+                    <div class="developer-content">
+                        <h3>Pesan dari Developer</h3>
+                        <p>
+                            Hi! Saya <strong th:text="${developerName}">Hanzama</strong>, creator Project Akasha. 
+                            Platform ini lahir dari pengalaman personal, dan setiap feedback dari Anda 
+                            sangat berarti bagi perkembangan Project Akasha.
+                        </p>
+                        <p>
+                            Jangan ragu untuk berbagi pengalaman, saran, atau bahkan kritik. 
+                            Mari bersama-sama membangun ruang digital yang lebih aman dan suportif 
+                            untuk kesehatan mental kita semua.
+                        </p>
+                        <div class="developer-contact">
+                            <a href="mailto:hello@projectakasha.com" class="developer-email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                Kirim Pesan Personal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

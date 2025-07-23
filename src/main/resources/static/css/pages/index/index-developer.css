@@ -1,0 +1,238 @@
+/* =============================================================================
+   PROJECT AKASHA - DEVELOPER SECTION STYLING
+   Section "Dari Pengembang" dengan desain yang konsisten dan premium
+   ============================================================================= */
+
+/* ======= DEVELOPER SECTION ======= */
+.developer-section {
+    background: var(--color-white); /* Background terang konsisten dengan section lain */
+    color: var(--color-text);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-4xl) 0; /* Konsisten dengan section lainnya */
+}
+
+/* Subtle gradient overlay untuk depth */
+.developer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.02) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.developer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.developer-info .section-title {
+    color: var(--color-text);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: left;
+    margin-bottom: var(--space-2xl); /* Lebih besar untuk ruang napas yang lega */
+    font-weight: 800; /* Meningkatkan font-weight untuk dampak visual */
+    font-size: clamp(2.25rem, 4vw, 2.75rem); /* Ukuran setara dengan judul bagian lainnya */
+}
+
+.developer-message {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light); /* Warna teks standar untuk tema terang */
+    margin-bottom: var(--space-2xl);
+}
+
+.developer-message p {
+    margin-bottom: var(--space-lg);
+}
+
+.developer-message strong {
+    color: var(--color-text); /* Warna teks gelap untuk emphasis */
+    font-weight: 600;
+}
+
+/* Kutipan yang elegan dan terintegrasi dengan background terang */
+.developer-message em {
+    font-style: italic;
+    color: var(--color-text-muted); /* Warna teks sekunder yang lebih lembut */
+    font-size: 1.05rem;
+    display: block;
+    margin-top: var(--space-lg);
+    /* Desain ulang untuk tema terang */
+    background: var(--color-gray-50); /* Background lembut */
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary); /* Border kiri dengan warna aksen */
+    line-height: 1.6;
+}
+
+.developer-contact {
+    margin-top: var(--space-2xl);
+}
+
+/* Tombol dengan gaya sekunder yang konsisten */
+.developer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl); /* Padding konsisten dengan btn-secondary */
+    background: transparent; /* Background transparan untuk tema terang */
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-lg); /* Border-radius yang sama dengan tombol lainnya */
+    font-weight: 500;
+    font-size: 1rem; /* Tipografi yang sama dengan tombol sekunder */
+    transition: all var(--transition-fast);
+    border: 2px solid var(--color-gray-300); /* Border konsisten dengan btn-secondary */
+}
+
+.developer-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.developer-link i {
+    font-size: 1.1rem; /* Ikon yang proporsional */
+}
+
+.developer-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Code Snippet dengan integrasi visual yang lebih baik */
+.code-snippet {
+    background: #f8fafc; /* Background abu-abu muda untuk tema terang */
+    border-radius: var(--radius-lg); /* Border-radius konsisten dengan tombol */
+    overflow: hidden;
+    border: 1px solid var(--color-gray-200); /* Border yang halus untuk tema terang */
+    font-family: 'Courier New', monospace;
+    max-width: 100%;
+    box-shadow: 0 15px 40px rgba(45, 55, 72, 0.08); /* Shadow konsisten */
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-gray-100); /* Background header yang lebih terang */
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.code-title {
+    font-size: 0.8rem;
+    color: var(--color-text-muted); /* Warna teks yang sesuai tema terang */
+    font-weight: 500;
+}
+
+.code-dots {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.code-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.code-dots span:nth-child(1) { background: #ff5f56; }
+.code-dots span:nth-child(2) { background: #ffbd2e; }
+.code-dots span:nth-child(3) { background: #27ca3f; }
+
+.code-content {
+    padding: var(--space-lg);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.code-line {
+    margin-bottom: var(--space-xs);
+    color: var(--color-text); /* Teks gelap untuk tema terang */
+}
+
+.code-comment {
+    color: #6a9955; /* Hijau untuk komentar - sudah bagus untuk tema terang */
+    font-style: italic;
+}
+
+.code-keyword {
+    color: #0066cc; /* Biru tua untuk keyword agar kontras di background terang */
+    font-weight: 600;
+}
+
+.code-variable {
+    color: #6f42c1; /* Ungu gelap untuk variabel */
+}
+
+.code-string {
+    color: #d73a49; /* Merah gelap untuk string */
+}
+
+.code-function {
+    color: #005cc5; /* Biru gelap untuk function */
+    font-weight: 600;
+}
+
+/* Responsive Design untuk Developer Section */
+@media (max-width: 768px) {
+    .developer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+        text-align: center;
+    }
+    
+    .developer-info .section-title {
+        text-align: center;
+        font-size: 2rem; /* Ukuran yang tepat untuk mobile */
+    }
+    
+    .code-snippet {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .developer-link {
+        width: 100%;
+        justify-content: center;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .developer-section {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .developer-message {
+        font-size: 1rem;
+    }
+    
+    .code-content {
+        padding: var(--space-md);
+        font-size: 0.7rem;
+    }
+    
+    .code-snippet {
+        max-width: 280px;
+    }
+    
+    .developer-info .section-title {
+        font-size: 1.75rem;
+    }
+}

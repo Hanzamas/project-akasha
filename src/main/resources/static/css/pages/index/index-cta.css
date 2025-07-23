@@ -1,0 +1,188 @@
+/* =============================================================================
+   PROJECT AKASHA - CTA & DEVELOPER SECTION STYLING
+   CTA dan Developer section untuk landing page
+   ============================================================================= */
+
+/* ======= CTA SECTION ======= */
+.cta-section {
+    background: var(--color-white); /* Background konsisten dengan features section */
+    position: relative;
+    text-align: center;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(74, 144, 226, 0.02) 0%, transparent 60%); /* Subtle accent */
+    pointer-events: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: clamp(2.25rem, 4vw, 2.75rem); /* Slightly larger for more impact */
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-xl); /* More generous spacing */
+    line-height: 1.2;
+}
+
+.cta-subtitle {
+    font-size: 1.25rem; /* Slightly larger */
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-3xl); /* More generous bottom spacing */
+    max-width: 700px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-2xl);
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary,
+.cta-buttons .btn-secondary {
+    font-size: 1.1rem;
+    padding: 1.2rem 2.5rem;
+}
+
+.cta-buttons .btn-primary.large,
+.cta-buttons .btn-secondary.large {
+    font-size: 1.2rem;
+    padding: 1.4rem 3rem;
+}
+
+.cta-reassurance {
+    justify-content: center;
+    margin: var(--space-3xl) 0; /* More generous spacing around reassurance */
+}
+
+.reassurance-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.95rem; /* Slightly larger for better readability */
+    font-weight: 500;
+}
+
+.reassurance-item i {
+    color: var(--color-success); /* Using success color for trust indicators */
+    font-size: 1.1rem; /* Slightly larger icons */
+}
+
+/* App Buttons */
+.app-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: var(--space-xl) 0;
+}
+
+.app-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-text);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    border: 2px solid var(--color-text);
+}
+
+.app-button:hover {
+    background: transparent;
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+.app-button i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design for CTA Section */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        max-width: 300px; /* Constrain width for better mobile appearance */
+        margin: 0 auto var(--space-2xl); /* Center the button group */
+    }
+    
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .app-buttons {
+        flex-direction: column;
+        gap: var(--space-sm);
+        max-width: 300px; /* Consistent with CTA buttons */
+        margin: var(--space-xl) auto; /* Center the app buttons */
+    }
+    
+    .app-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cta-reassurance {
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin: var(--space-2xl) 0; /* Adjust spacing for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-title {
+        font-size: 1.75rem;
+    }
+    
+    .cta-subtitle {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons .btn-primary.large,
+    .cta-buttons .btn-secondary.large {
+        font-size: 1rem;
+        padding: 1.2rem 2rem;
+    }
+    
+    .developer-message {
+        font-size: 1rem;
+    }
+    
+    .code-content {
+        padding: var(--space-md);
+        font-size: 0.7rem;
+    }
+    
+    .code-snippet {
+        max-width: 280px;
+    }
+}

@@ -1,0 +1,519 @@
+/* =============================================================================
+   PROJECT AKASHA - FEATURES SECTION STYLING
+   Features section untuk landing page
+   ============================================================================= */
+
+/* ======= FEATURES SECTION ======= */
+.features-section {
+    background: var(--color-white);
+    position: relative;
+    padding: var(--space-5xl) 0; /* Padding vertikal yang lebih generous */
+}
+
+.features-grid {
+    display: grid;
+    /* Grid cerdas: 2 kolom di desktop, 1 di mobile - FINAL SOLUTION */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5xl); /* Gap yang sangat lega - 4rem */
+    margin-top: var(--space-5xl);
+    width: 100%; /* Gunakan lebar penuh dari .container */
+}
+
+.feature-card {
+    background: var(--color-white);
+    border-radius: var(--radius-3xl); /* Border radius yang lebih besar */
+    padding: var(--space-4xl); /* Padding yang sangat generous */
+    box-shadow: 0 15px 40px rgba(45, 55, 72, 0.08); /* Shadow yang halus dan menyebar */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi yang smooth */
+    border: 1px solid var(--color-gray-100);
+    position: relative;
+    overflow: hidden;
+    /* Flexbox untuk menyamakan tinggi secara natural */
+    display: flex;
+    flex-direction: column;
+    height: fit-content; /* Pastikan tinggi menyesuaikan konten */
+    /* Animasi fade-in default */
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Card structure untuk layout yang seimbang */
+.card-header {
+    flex: 0 0 auto; /* Header tidak akan grow */
+}
+
+.card-body {
+    flex: 1; /* Body akan mengambil ruang tersisa dan menyamakan tinggi */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-footer {
+    flex: 0 0 auto; /* Footer tidak akan grow */
+    margin-top: auto; /* Push footer ke bawah */
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transition: transform var(--transition-fast);
+    transform-origin: left;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px); /* Efek mengambang yang dramatis */
+    box-shadow: 0 25px 60px rgba(45, 55, 72, 0.15); /* Shadow lebih dalam saat hover */
+    border-color: rgba(74, 144, 226, 0.3); /* Border glow saat hover */
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Staggered animation untuk kartu */
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-icon {
+    width: 80px; /* Sedikit lebih besar untuk impact visual */
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: var(--radius-2xl); /* Radius yang lebih besar untuk tampilan modern */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
+    font-size: 2rem; /* Icon yang lebih besar */
+    /* Efek glow halus */
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+    transition: all var(--transition-fast);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.05); /* Sedikit membesar saat hover */
+    box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+}
+
+.feature-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+    line-height: 1.3;
+}
+
+.feature-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+}
+
+.feature-highlights {
+    display: flex;
+    gap: var(--space-sm);
+    margin: var(--space-xl) 0;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, #eef2ff, #f0f9ff); /* Gradient biru sangat muda */
+    color: #1e40af; /* Warna biru tua untuk kontras */
+    padding: var(--space-sm) var(--space-lg); /* Padding yang comfortable */
+    border-radius: var(--radius-full); /* Border radius penuh untuk pill shape */
+    font-size: 0.8rem;
+    font-weight: 600; /* Font weight yang lebih bold */
+    white-space: nowrap;
+    margin-right: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(30, 64, 175, 0.1); /* Border halus */
+    box-shadow: 0 2px 4px rgba(30, 64, 175, 0.05); /* Shadow halus */
+}
+
+.highlight:hover {
+    background: linear-gradient(135deg, #ddd6fe, #e0e7ff);
+    color: #1e3a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(30, 64, 175, 0.15);
+}
+
+/* Feature Mockups - Enhanced dengan Full Width */
+.chat-mockup {
+    background: linear-gradient(135deg, var(--color-gray-50), rgba(74, 144, 226, 0.02));
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-top: var(--space-xl);
+    border: 1px solid var(--color-gray-200);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Pastikan full width */
+}
+
+.growth-dashboard {
+    background: linear-gradient(135deg, var(--color-gray-50), rgba(74, 144, 226, 0.02));
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-top: var(--space-xl);
+    border: 1px solid var(--color-gray-200);
+    width: 100%; /* Pastikan full width */
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    width: 100%; /* Pastikan full width */
+}
+
+.chat-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.feature-card:hover .chat-mockup {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(255, 107, 107, 0.02));
+    transform: scale(1.02); /* Sedikit zoom saat hover */
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md); /* Gap yang lebih lega */
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.chat-avatar {
+    width: 50px; /* Sedikit lebih besar */
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.chat-bubble {
+    background: var(--color-white);
+    padding: var(--space-md) var(--space-lg); /* Padding yang lebih comfortable */
+    border-radius: var(--radius-xl); /* Radius yang lebih modern */
+    margin-bottom: var(--space-md);
+    font-size: 0.95rem; /* Sedikit lebih besar untuk keterbacaan */
+    line-height: 1.5;
+    color: var(--color-text);
+    border: 1px solid var(--color-gray-100);
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-fast);
+}
+
+.chat-bubble:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+}
+
+.chat-bubble:last-child {
+    margin-bottom: 0;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.forum-card {
+    background: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-100);
+    transition: all var(--transition-fast);
+}
+
+.forum-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+}
+
+.forum-card h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+    line-height: 1.3;
+}
+
+.forum-card p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+
+.growth-dashboard {
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-top: var(--space-lg);
+    border: 1px solid var(--color-gray-200);
+}
+
+.mood-chart {
+    height: 120px;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    position: relative;
+    margin: var(--space-md) 0;
+    border: 1px solid var(--color-gray-100);
+    overflow: hidden;
+}
+
+.mood-line {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: var(--radius-full);
+}
+
+.mood-line::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 20%;
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    animation: float 2s ease-in-out infinite;
+}
+
+.mood-line::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 30%;
+    width: 6px;
+    height: 6px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    animation: float 2s ease-in-out infinite 0.5s;
+}
+
+/* Education Preview Mockup */
+.education-preview {
+    background: linear-gradient(135deg, var(--color-gray-50), rgba(74, 144, 226, 0.02));
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-top: var(--space-xl);
+    border: 1px solid var(--color-gray-200);
+    width: 100%;
+}
+
+/* Content Grid - 2x2 Layout untuk Educational Content */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin: 0;
+}
+
+.content-item {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--color-gray-100);
+    transition: all 0.3s ease;
+    
+    /* Flex layout untuk center content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+    
+    /* Min height untuk konsistensi */
+    min-height: 80px;
+    position: relative;
+    cursor: pointer;
+    
+    /* Animasi fade-in default */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.content-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.02), var(--color-white));
+    border-color: rgba(74, 144, 226, 0.2);
+}
+
+.content-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+}
+
+.content-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+.content-item:hover span {
+    color: var(--color-primary);
+}
+
+/* Staggered animation untuk content items */
+.content-item:nth-child(1) { animation-delay: 0.1s; }
+.content-item:nth-child(2) { animation-delay: 0.2s; }
+.content-item:nth-child(3) { animation-delay: 0.3s; }
+.content-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Design for Features - FINAL RESPONSIVE RULES */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom di tablet */
+        gap: var(--space-4xl);
+    }
+    
+    .feature-card {
+        padding: var(--space-3xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        padding: var(--space-4xl) 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr; /* 1 kolom di mobile */
+        gap: var(--space-3xl);
+    }
+    
+    .feature-card {
+        padding: var(--space-3xl);
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+    }
+    
+    .community-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    /* Content Grid responsive - 1 kolom di mobile */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .chat-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+    
+    .chat-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .chat-bubble {
+        padding: var(--space-md);
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-section {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .features-grid {
+        gap: var(--space-2xl);
+    }
+    
+    .feature-highlights {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+    
+    .highlight {
+        align-self: flex-start;
+        font-size: 0.75rem;
+        padding: var(--space-xs) var(--space-md);
+        margin-right: 0;
+    }
+    
+    .forum-card {
+        padding: var(--space-md);
+    }
+    
+    .forum-card h4 {
+        font-size: 0.9rem;
+    }
+    
+    .forum-card p {
+        font-size: 0.8rem;
+    }
+    
+    .feature-card {
+        padding: var(--space-2xl);
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}

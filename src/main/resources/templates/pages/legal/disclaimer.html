@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="id" 
+      xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/main :: layout(~{::title}, ~{::meta}, ~{::links}, ~{::scripts}, ~{::main})}"
+>
+<head>
+    <title th:text="${pageTitle}">Disclaimer - Project Akasha</title>
+    
+    <!-- Page-specific meta tags -->
+    <th:block th:fragment="meta">
+        <meta name="description" th:content="${pageDescription}">
+        <meta name="keywords" content="disclaimer, batasan tanggung jawab, project akasha, kesehatan mental, platform digital">
+        <meta name="author" content="Project Akasha">
+        <meta name="robots" content="index, follow">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Disclaimer - Project Akasha">
+        <meta property="og:description" content="Disclaimer dan batasan tanggung jawab untuk platform kesehatan mental Project Akasha.">
+        <meta property="og:type" content="article">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Disclaimer - Project Akasha">
+        <meta name="twitter:description" content="Disclaimer dan batasan tanggung jawab untuk platform kesehatan mental Project Akasha.">
+    </th:block>
+    
+    <!-- Legal Page Specific CSS -->
+    <th:block th:fragment="links">
+        <link rel="stylesheet" th:href="@{/css/pages/legal.css}">
+    </th:block>
+    
+    <!-- Legal Page Specific JavaScript -->
+    <th:block th:fragment="scripts">
+        <th:block th:replace="~{components/scripts :: legal-scripts}"></th:block>
+    </th:block>
+</head>
+<body>
+    <main th:fragment="main">
+        <!-- Hero Section -->
+        <section class="hero-section page-hero legal-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Disclaimer</h1>
+                    <p class="hero-subtitle">
+                        Batasan tanggung jawab dan informasi penting tentang layanan
+                    </p>
+                    <div class="hero-meta">
+                        <span class="last-updated" th:text="'Terakhir diperbarui: ' + ${lastUpdated}">Terakhir diperbarui: 15 Januari 2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer Content -->
+        <section class="legal-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Sidebar Navigation -->
+                    <nav class="content-nav" aria-label="Navigasi konten">
+                        <ul class="nav-list">
+                            <li><a href="#pernyataan-umum">Pernyataan Umum</a></li>
+                            <li><a href="#bukan-nasihat-medis">Bukan Nasihat Medis</a></li>
+                            <li><a href="#keterbatasan-ai">Keterbatasan AI</a></li>
+                            <li><a href="#konten-pengguna">Konten Pengguna</a></li>
+                            <li><a href="#keakuratan-informasi">Keakuratan Informasi</a></li>
+                            <li><a href="#ketersediaan-layanan">Ketersediaan Layanan</a></li>
+                            <li><a href="#pihak-ketiga">Layanan Pihak Ketiga</a></li>
+                            <li><a href="#batasan-tanggung-jawab">Batasan Tanggung Jawab</a></li>
+                            <li><a href="#keadaan-darurat">Keadaan Darurat</a></li>
+                            <li><a href="#perubahan">Perubahan Disclaimer</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Main Content -->
+                    <div class="legal-main">
+                        <!-- Pernyataan Umum -->
+                        <section id="pernyataan-umum" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                                Pernyataan Umum
+                            </h2>
+                            <div class="section-content">
+                                <div class="critical-notice">
+                                    <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> PENTING - BACA DENGAN SEKSAMA</h3>
+                                    <p class="large-text">
+                                        <strong th:text="${platformName}">Project Akasha</strong> adalah platform digital 
+                                        yang menyediakan dukungan kesehatan mental dan informasi edukasi. Platform ini 
+                                        <strong>TIDAK MENGGANTIKAN</strong> konsultasi profesional dengan tenaga kesehatan 
+                                        mental berlisensi.
+                                    </p>
+                                </div>
+                                
+                                <div class="disclaimer-principles">
+                                    <h3>Prinsip Dasar Platform:</h3>
+                                    <div class="principle-grid">
+                                        <div class="principle-item">
+                                            <h4><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Dukungan Tambahan</h4>
+                                            <p>Platform ini adalah <em>pelengkap</em> dari perawatan kesehatan mental profesional, bukan pengganti.</p>
+                                        </div>
+
+                                        <div class="principle-item">
+                                            <h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> Tujuan Edukasi</h4>
+                                            <p>Informasi disediakan untuk tujuan edukasi dan kesadaran diri, bukan diagnosis.</p>
+                                        </div>
+
+                                        <div class="principle-item">
+                                            <h4><i class="fas fa-users" aria-hidden="true"></i> Komunitas Peer</h4>
+                                            <p>Menyediakan ruang aman untuk berbagi pengalaman dengan sesama pengguna.</p>
+                                        </div>
+
+                                        <div class="principle-item">
+                                            <h4><i class="fas fa-tools" aria-hidden="true"></i> Alat Bantu</h4>
+                                            <p>Menyediakan tools untuk self-reflection dan monitoring kesehatan mental personal.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="usage-agreement">
+                                    <h3>Dengan menggunakan platform ini, Anda memahami dan menyetujui bahwa:</h3>
+                                    <ul class="agreement-list">
+                                        <li>Platform ini tidak memberikan diagnosis medis atau psikologis</li>
+                                        <li>Informasi yang disediakan bersifat umum dan tidak personal</li>
+                                        <li>Anda bertanggung jawab atas keputusan kesehatan mental Anda</li>
+                                        <li>Dalam situasi krisis, Anda akan mencari bantuan profesional segera</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Bukan Nasihat Medis -->
+                        <section id="bukan-nasihat-medis" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-user-md" aria-hidden="true"></i>
+                                Bukan Nasihat Medis Profesional
+                            </h2>
+                            <div class="section-content">
+                                <div class="medical-disclaimer">
+                                    <div class="warning-box">
+                                        <h3><i class="fas fa-stethoscope" aria-hidden="true"></i> DISCLAIMER MEDIS</h3>
+                                        <p class="large-text">
+                                            Semua informasi, konten, dan layanan di platform ini disediakan untuk 
+                                            tujuan <strong>informatif dan edukatif saja</strong>. Tidak ada informasi 
+                                            di platform ini yang dimaksudkan sebagai pengganti untuk:
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="not-replacement-grid">
+                                    <div class="not-replacement-item">
+                                        <h3><i class="fas fa-user-md" aria-hidden="true"></i> Konsultasi Medis</h3>
+                                        <p>Konsultasi langsung dengan psikolog, psikiater, atau dokter berlisensi.</p>
+                                    </div>
+
+                                    <div class="not-replacement-item">
+                                        <h3><i class="fas fa-diagnoses" aria-hidden="true"></i> Diagnosis Profesional</h3>
+                                        <p>Diagnosis resmi dari tenaga kesehatan mental yang kompeten.</p>
+                                    </div>
+
+                                    <div class="not-replacement-item">
+                                        <h3><i class="fas fa-prescription-bottle-alt" aria-hidden="true"></i> Pengobatan Medis</h3>
+                                        <p>Resep obat, terapi, atau rencana perawatan dari profesional.</p>
+                                    </div>
+
+                                    <div class="not-replacement-item">
+                                        <h3><i class="fas fa-hospital" aria-hidden="true"></i> Perawatan Darurat</h3>
+                                        <p>Perawatan medis darurat untuk kondisi mental yang kritis.</p>
+                                    </div>
+                                </div>
+
+                                <div class="professional-recommendation">
+                                    <h3><i class="fas fa-clipboard-check" aria-hidden="true"></i> Rekomendasi Kami</h3>
+                                    <div class="recommendation-box">
+                                        <p>
+                                            <strong>Kami sangat menyarankan</strong> untuk selalu berkonsultasi dengan 
+                                            tenaga kesehatan mental berlisensi, terutama jika Anda:
+                                        </p>
+                                        <ul class="recommendation-list">
+                                            <li>Mengalami gejala depresi, kecemasan, atau gangguan mental lainnya</li>
+                                            <li>Memiliki thoughts of self-harm atau bunuh diri</li>
+                                            <li>Mengalami episode psikotik atau kehilangan kontak dengan realitas</li>
+                                            <li>Membutuhkan pengobatan atau terapi profesional</li>
+                                            <li>Mengalami trauma atau PTSD</li>
+                                            <li>Memiliki riwayat gangguan mental serius</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Keterbatasan AI -->
+                        <section id="keterbatasan-ai" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-robot" aria-hidden="true"></i>
+                                Keterbatasan Sistem AI
+                            </h2>
+                            <div class="section-content">
+                                <div class="ai-disclaimer">
+                                    <h3>Tentang AI Chat Support</h3>
+                                    <p class="section-intro">
+                                        Platform kami menggunakan teknologi Artificial Intelligence (AI) untuk 
+                                        memberikan respons otomatis dan dukungan awal. Namun, teknologi AI memiliki 
+                                        keterbatasan yang penting untuk dipahami:
+                                    </p>
+                                </div>
+
+                                <div class="ai-limitations">
+                                    <div class="limitation-category">
+                                        <h3><i class="fas fa-brain" aria-hidden="true"></i> Keterbatasan Pemahaman</h3>
+                                        <ul>
+                                            <li><strong>Tidak Memiliki Empati Sejati:</strong> AI tidak dapat merasakan atau memahami emosi secara mendalam</li>
+                                            <li><strong>Konteks Terbatas:</strong> Mungkin tidak memahami nuansa kompleks dari situasi personal</li>
+                                            <li><strong>Interpretasi Literal:</strong> Dapat salah mengartikan sarkasme, humor, atau bahasa figuratif</li>
+                                            <li><strong>Tidak Memiliki Intuisi:</strong> Tidak dapat "membaca" antara baris atau memahami yang tersirat</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="limitation-category">
+                                        <h3><i class="fas fa-database" aria-hidden="true"></i> Keterbatasan Data</h3>
+                                        <ul>
+                                            <li><strong>Data Training:</strong> Berdasarkan data training yang mungkin tidak mencakup semua kasus</li>
+                                            <li><strong>Update Terbatas:</strong> Tidak selalu memiliki informasi terbaru tentang penelitian atau treatment</li>
+                                            <li><strong>Bias Potensial:</strong> Dapat memiliki bias yang tidak disadari dari data training</li>
+                                            <li><strong>Generalisasi:</strong> Memberikan respons umum yang mungkin tidak sesuai untuk kasus spesifik</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="limitation-category">
+                                        <h3><i class="fas fa-exclamation-circle" aria-hidden="true"></i> Risiko dan Bahaya</h3>
+                                        <ul>
+                                            <li><strong>Misdiagnosis:</strong> AI tidak dapat dan tidak boleh melakukan diagnosis</li>
+                                            <li><strong>Saran Tidak Tepat:</strong> Dapat memberikan saran yang tidak sesuai untuk situasi tertentu</li>
+                                            <li><strong>False Reassurance:</strong> Mungkin memberikan jaminan palsu atau minimalisasi masalah serius</li>
+                                            <li><strong>Crisis Detection:</strong> Mungkin gagal mendeteksi situasi krisis yang membutuhkan bantuan segera</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="ai-usage-guidelines">
+                                    <h3><i class="fas fa-list-check" aria-hidden="true"></i> Panduan Penggunaan AI</h3>
+                                    <div class="guideline-box">
+                                        <h4>DO (Lakukan):</h4>
+                                        <ul class="do-list">
+                                            <li>Gunakan untuk informasi umum dan edukasi dasar</li>
+                                            <li>Manfaatkan untuk self-reflection dan journaling prompts</li>
+                                            <li>Gunakan sebagai starting point untuk mencari bantuan profesional</li>
+                                            <li>Verifikasi informasi dengan sumber kredible lainnya</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="guideline-box">
+                                        <h4>DON'T (Jangan):</h4>
+                                        <ul class="dont-list">
+                                            <li>Mengandalkan AI untuk diagnosis atau treatment plan</li>
+                                            <li>Menggantikan terapi profesional dengan AI chat</li>
+                                            <li>Mengikuti saran AI dalam situasi krisis</li>
+                                            <li>Membagikan informasi sangat sensitif atau identitas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Konten Pengguna -->
+                        <section id="konten-pengguna" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                                Disclaimer Konten Pengguna
+                            </h2>
+                            <div class="section-content">
+                                <div class="user-content-disclaimer">
+                                    <h3>Konten dari Komunitas</h3>
+                                    <p class="section-intro">
+                                        Platform kami memungkinkan pengguna untuk berbagi pengalaman, saran, dan 
+                                        dukungan melalui forum komunitas. Penting untuk memahami:
+                                    </p>
+                                </div>
+
+                                <div class="content-warnings">
+                                    <div class="warning-category">
+                                        <h3><i class="fas fa-user-friends" aria-hidden="true"></i> Saran Peer-to-Peer</h3>
+                                        <div class="warning-box">
+                                            <p>
+                                                <strong>Peringatan:</strong> Saran atau pengalaman yang dibagikan oleh 
+                                                pengguna lain <strong>BUKAN nasihat medis profesional</strong>. Setiap 
+                                                orang memiliki kondisi unik yang memerlukan pendekatan berbeda.
+                                            </p>
+                                        </div>
+                                        <ul>
+                                            <li>Pengalaman personal mungkin tidak applicable untuk situasi Anda</li>
+                                            <li>Tidak ada jaminan keefektifan metode yang dibagikan pengguna lain</li>
+                                            <li>Risiko mengikuti saran non-profesional sepenuhnya menjadi tanggung jawab Anda</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="warning-category">
+                                        <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> Moderasi dan Tanggung Jawab</h3>
+                                        <p>Meskipun kami melakukan moderasi, kami tidak dapat:</p>
+                                        <ul>
+                                            <li>Menjamin keakuratan semua informasi yang dibagikan pengguna</li>
+                                            <li>Memverifikasi kualifikasi atau expertise setiap pengguna</li>
+                                            <li>Bertanggung jawab atas dampak dari interaksi antar pengguna</li>
+                                            <li>Memantau semua komunikasi private antara pengguna</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="warning-category">
+                                        <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Konten Bermasalah</h3>
+                                        <p>Jika Anda menemukan konten yang:</p>
+                                        <ul>
+                                            <li>Mempromosikan self-harm atau bunuh diri</li>
+                                            <li>Memberikan informasi medis yang salah atau berbahaya</li>
+                                            <li>Melakukan bullying atau harassment</li>
+                                            <li>Melanggar kode etik komunitas</li>
+                                        </ul>
+                                        <p><strong>Segera laporkan ke tim moderasi kami.</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="community-guidelines">
+                                    <h3>Pedoman Berinteraksi dengan Konten Pengguna</h3>
+                                    <div class="guideline-grid">
+                                        <div class="guideline-item">
+                                            <h4><i class="fas fa-filter" aria-hidden="true"></i> Filter dengan Bijak</h4>
+                                            <p>Evaluasi kritis setiap saran atau informasi sebelum menerapkannya</p>
+                                        </div>
+
+                                        <div class="guideline-item">
+                                            <h4><i class="fas fa-search" aria-hidden="true"></i> Verifikasi Informasi</h4>
+                                            <p>Cross-check informasi dengan sumber medis yang kredibel</p>
+                                        </div>
+
+                                        <div class="guideline-item">
+                                            <h4><i class="fas fa-user-md" aria-hidden="true"></i> Konsultasi Profesional</h4>
+                                            <p>Diskusikan informasi yang Anda temukan dengan tenaga kesehatan profesional</p>
+                                        </div>
+
+                                        <div class="guideline-item">
+                                            <h4><i class="fas fa-flag" aria-hidden="true"></i> Laporkan Masalah</h4>
+                                            <p>Bantu menjaga keamanan komunitas dengan melaporkan konten bermasalah</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Keakuratan Informasi -->
+                        <section id="keakuratan-informasi" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-check-double" aria-hidden="true"></i>
+                                Keakuratan dan Kelengkapan Informasi
+                            </h2>
+                            <div class="section-content">
+                                <div class="accuracy-disclaimer">
+                                    <h3>Upaya Terbaik, Bukan Jaminan</h3>
+                                    <p class="section-intro">
+                                        Kami berusaha menyediakan informasi yang akurat, terkini, dan bermanfaat. 
+                                        Namun, kami <strong>tidak dapat menjamin</strong>:
+                                    </p>
+                                </div>
+
+                                <div class="no-guarantee-list">
+                                    <div class="no-guarantee-item">
+                                        <h3><i class="fas fa-calendar-alt" aria-hidden="true"></i> Informasi Terkini</h3>
+                                        <p>
+                                            Penelitian kesehatan mental terus berkembang. Informasi yang disajikan 
+                                            mungkin tidak mencerminkan temuan atau best practice terbaru.
+                                        </p>
+                                    </div>
+
+                                    <div class="no-guarantee-item">
+                                        <h3><i class="fas fa-globe" aria-hidden="true"></i> Relevansi Universal</h3>
+                                        <p>
+                                            Informasi mungkin lebih relevan untuk konteks budaya, sistem kesehatan, 
+                                            atau regulasi tertentu yang tidak aplikabel di semua negara.
+                                        </p>
+                                    </div>
+
+                                    <div class="no-guarantee-item">
+                                        <h3><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Kelengkapan</h3>
+                                        <p>
+                                            Tidak semua aspek dari topik kesehatan mental dapat dicover secara 
+                                            komprehensif dalam platform ini.
+                                        </p>
+                                    </div>
+
+                                    <div class="no-guarantee-item">
+                                        <h3><i class="fas fa-user" aria-hidden="true"></i> Aplikabilitas Personal</h3>
+                                        <p>
+                                            Informasi umum mungkin tidak sesuai untuk kondisi, situasi, atau 
+                                            kebutuhan spesifik Anda.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="information-sources">
+                                    <h3>Sumber Informasi</h3>
+                                    <p>Informasi kami bersumber dari:</p>
+                                    <ul class="source-list">
+                                        <li>Publikasi ilmiah dan jurnal peer-reviewed</li>
+                                        <li>Panduan dari organisasi kesehatan mental terpercaya</li>
+                                        <li>Materi edukasi dari institusi kesehatan profesional</li>
+                                        <li>Best practices yang diakui secara internasional</li>
+                                    </ul>
+                                    <p class="source-note">
+                                        <strong>Namun,</strong> interpretasi dan penyajian informasi tetap menjadi 
+                                        tanggung jawab kami dan dapat mengandung error atau bias.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Ketersediaan Layanan -->
+                        <section id="ketersediaan-layanan" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-server" aria-hidden="true"></i>
+                                Ketersediaan dan Kontinuitas Layanan
+                            </h2>
+                            <div class="section-content">
+                                <div class="service-availability">
+                                    <h3>Tidak Ada Jaminan Uptime 100%</h3>
+                                    <p class="section-intro">
+                                        Meskipun kami berusaha menyediakan layanan yang stabil dan dapat diandalkan, 
+                                        kami tidak dapat menjamin platform akan tersedia 24/7 tanpa gangguan.
+                                    </p>
+                                </div>
+
+                                <div class="potential-disruptions">
+                                    <h3>Potensi Gangguan Layanan</h3>
+                                    <div class="disruption-grid">
+                                        <div class="disruption-item">
+                                            <h4><i class="fas fa-tools" aria-hidden="true"></i> Pemeliharaan Terjadwal</h4>
+                                            <p>Update sistem, security patches, dan maintenance rutin</p>
+                                        </div>
+
+                                        <div class="disruption-item">
+                                            <h4><i class="fas fa-bolt" aria-hidden="true"></i> Gangguan Teknis</h4>
+                                            <p>Server downtime, masalah jaringan, atau kegagalan sistem</p>
+                                        </div>
+
+                                        <div class="disruption-item">
+                                            <h4><i class="fas fa-shield-alt" aria-hidden="true"></i> Keamanan</h4>
+                                            <p>Tindakan keamanan darurat atau mitigasi serangan cyber</p>
+                                        </div>
+
+                                        <div class="disruption-item">
+                                            <h4><i class="fas fa-balance-scale" aria-hidden="true"></i> Aspek Legal</h4>
+                                            <p>Perubahan regulasi atau persyaratan compliance</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-continuity">
+                                    <h3>Rencana Kontinuitas</h3>
+                                    <p>Dalam kasus gangguan layanan:</p>
+                                    <ul class="continuity-list">
+                                        <li>Kami akan memberikan notifikasi secepatnya melalui channel resmi</li>
+                                        <li>Estimasi waktu pemulihan akan dikomunikasikan jika memungkinkan</li>
+                                        <li>Data pengguna akan tetap aman selama periode downtime</li>
+                                        <li>Alternative contact methods untuk situasi darurat akan disediakan</li>
+                                    </ul>
+                                </div>
+
+                                <div class="backup-plans">
+                                    <h3><i class="fas fa-life-ring" aria-hidden="true"></i> Jika Platform Tidak Tersedia</h3>
+                                    <div class="emergency-contacts">
+                                        <p><strong>Dalam situasi krisis mental, jangan bergantung hanya pada platform ini.</strong></p>
+                                        <p>Hubungi segera:</p>
+                                        <ul class="emergency-list">
+                                            <li><strong>Darurat Nasional:</strong> <a href="tel:119" th:text="${emergencyNumber}">119</a></li>
+                                            <li><strong>Rumah Sakit Terdekat</strong> atau <strong>Puskesmas</strong></li>
+                                            <li><strong>Psikolog/Psikiater</strong> pribadi Anda</li>
+                                            <li><strong>Keluarga atau teman terpercaya</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Pihak Ketiga -->
+                        <section id="pihak-ketiga" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                Layanan dan Konten Pihak Ketiga
+                            </h2>
+                            <div class="section-content">
+                                <div class="third-party-disclaimer">
+                                    <h3>Integrasi dengan Layanan Eksternal</h3>
+                                    <p class="section-intro">
+                                        Platform kami dapat mengintegrasikan atau menyediakan link ke layanan, 
+                                        konten, atau website pihak ketiga. Kami <strong>tidak bertanggung jawab</strong> 
+                                        atas:
+                                    </p>
+                                </div>
+
+                                <div class="third-party-risks">
+                                    <div class="risk-category">
+                                        <h3><i class="fas fa-link" aria-hidden="true"></i> Link Eksternal</h3>
+                                        <ul>
+                                            <li>Keakuratan atau keandalan konten di website pihak ketiga</li>
+                                            <li>Kebijakan privasi atau keamanan website lain</li>
+                                            <li>Availability atau kontinuitas layanan pihak ketiga</li>
+                                            <li>Biaya atau syarat yang dikenakan oleh pihak ketiga</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="risk-category">
+                                        <h3><i class="fas fa-handshake" aria-hidden="true"></i> Partner Services</h3>
+                                        <ul>
+                                            <li>Kualitas layanan dari psikolog atau konselor partner</li>
+                                            <li>Professional conduct dari praktisi individual</li>
+                                            <li>Outcome atau hasil dari terapi atau konsultasi</li>
+                                            <li>Disputes atau konflik dengan service provider</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="risk-category">
+                                        <h3><i class="fas fa-credit-card" aria-hidden="true"></i> Payment Processors</h3>
+                                        <ul>
+                                            <li>Keamanan transaksi keuangan</li>
+                                            <li>Processing fees atau charges tambahan</li>
+                                            <li>Dispute resolution untuk transaksi</li>
+                                            <li>Refund policies dari payment gateway</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="user-responsibility">
+                                    <h3>Tanggung Jawab Pengguna</h3>
+                                    <div class="responsibility-box">
+                                        <p><strong>Sebelum menggunakan layanan pihak ketiga:</strong></p>
+                                        <ul class="responsibility-list">
+                                            <li>Baca dan pahami terms of service mereka</li>
+                                            <li>Review kebijakan privasi dan data handling</li>
+                                            <li>Verifikasi kredibilitas dan reputasi provider</li>
+                                            <li>Pahami biaya dan commitment yang diperlukan</li>
+                                            <li>Pastikan layanan tersebut legal di jurisdiksi Anda</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Batasan Tanggung Jawab -->
+                        <section id="batasan-tanggung-jawab" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                                Batasan Tanggung Jawab Hukum
+                            </h2>
+                            <div class="section-content">
+                                <div class="legal-limitation">
+                                    <h3>Limitation of Liability</h3>
+                                    <p class="legal-intro">
+                                        Sejauh diizinkan oleh hukum yang berlaku di <span th:text="${jurisdiction}">Indonesia</span>, 
+                                        <span th:text="${companyName}">PT. Akasha Digital Indonesia</span> dan afiliasinya 
+                                        <strong>TIDAK BERTANGGUNG JAWAB</strong> atas:
+                                    </p>
+                                </div>
+
+                                <div class="liability-exclusions">
+                                    <div class="exclusion-category">
+                                        <h3><i class="fas fa-heart-broken" aria-hidden="true"></i> Kondisi Kesehatan Mental</h3>
+                                        <ul>
+                                            <li>Deteriorasi atau perburukan kondisi kesehatan mental</li>
+                                            <li>Self-harm, bunuh diri, atau tindakan berbahaya lainnya</li>
+                                            <li>Kegagalan mendapatkan perawatan yang diperlukan</li>
+                                            <li>Keterlambatan dalam mendapatkan bantuan profesional</li>
+                                            <li>Adverse reactions terhadap informasi atau saran yang disediakan</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="exclusion-category">
+                                        <h3><i class="fas fa-dollar-sign" aria-hidden="true"></i> Kerugian Finansial</h3>
+                                        <ul>
+                                            <li>Biaya perawatan medis atau terapi</li>
+                                            <li>Loss of income akibat kondisi kesehatan mental</li>
+                                            <li>Biaya yang dikeluarkan untuk layanan pihak ketiga</li>
+                                            <li>Investasi waktu atau resources dalam platform</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="exclusion-category">
+                                        <h3><i class="fas fa-user-friends" aria-hidden="true"></i> Dampak Sosial/Personal</h3>
+                                        <ul>
+                                            <li>Kerusakan hubungan personal atau profesional</li>
+                                            <li>Stigma sosial atau discrimination</li>
+                                            <li>Impact pada karir atau pendidikan</li>
+                                            <li>Emotional distress dari interaksi dalam platform</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="exclusion-category">
+                                        <h3><i class="fas fa="database" aria-hidden="true"></i> Data dan Teknologi</h3>
+                                        <ul>
+                                            <li>Kehilangan data atau informasi personal</li>
+                                            <li>Breach atau pelanggaran keamanan data</li>
+                                            <li>Malfunction atau error dalam sistem AI</li>
+                                            <li>Downtime atau gangguan layanan teknis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="maximum-liability">
+                                    <h3>Batas Maksimum Ganti Rugi</h3>
+                                    <div class="max-liability-box">
+                                        <p>
+                                            <strong>Jika secara hukum kami ditemukan bertanggung jawab,</strong> 
+                                            total liability kami terbatas pada jumlah yang lebih kecil antara:
+                                        </p>
+                                        <ul>
+                                            <li>Jumlah yang dibayarkan untuk layanan premium dalam 12 bulan terakhir</li>
+                                            <li>IDR 1.000.000 (satu juta rupiah)</li>
+                                        </ul>
+                                        <p class="liability-note">
+                                            Batasan ini tidak berlaku untuk gross negligence atau willful misconduct.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Keadaan Darurat -->
+                        <section id="keadaan-darurat" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-ambulance" aria-hidden="true"></i>
+                                Protokol Keadaan Darurat Mental
+                            </h2>
+                            <div class="section-content">
+                                <div class="crisis-warning">
+                                    <div class="emergency-banner">
+                                        <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> JIKA INI KEADAAN DARURAT</h3>
+                                        <p class="large-text">
+                                            <strong>JANGAN bergantung pada platform ini untuk bantuan krisis mental. 
+                                            Hubungi layanan darurat SEGERA.</strong>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="crisis-indicators">
+                                    <h3>Tanda-tanda Keadaan Darurat Mental:</h3>
+                                    <div class="indicator-grid">
+                                        <div class="indicator-item danger">
+                                            <h4><i class="fas fa-skull-crossbones" aria-hidden="true"></i> Thoughts of Self-Harm</h4>
+                                            <p>Pikiran untuk menyakiti diri sendiri atau bunuh diri</p>
+                                        </div>
+
+                                        <div class="indicator-item danger">
+                                            <h4><i class="fas fa-fist-raised" aria-hidden="true"></i> Kekerasan</h4>
+                                            <p>Pikiran atau rencana untuk menyakiti orang lain</p>
+                                        </div>
+
+                                        <div class="indicator-item danger">
+                                            <h4><i class="fas fa-eye-slash" aria-hidden="true"></i> Episode Psikotik</h4>
+                                            <p>Halusinasi, delusi, atau kehilangan kontak dengan realitas</p>
+                                        </div>
+
+                                        <div class="indicator-item danger">
+                                            <h4><i class="fas fa-dizzy" aria-hidden="true"></i> Disorientation Berat</h4>
+                                            <p>Kebingungan ekstrem atau tidak mengenali lingkungan</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="emergency-actions">
+                                    <h3><i class="fas fa-phone-alt" aria-hidden="true"></i> KONTAK DARURAT - SEGERA HUBUNGI</h3>
+                                    <div class="emergency-grid">
+                                        <div class="emergency-contact primary">
+                                            <h4>🚨 DARURAT NASIONAL</h4>
+                                            <p class="emergency-number"><a href="tel:119">119</a></p>
+                                            <p>24 jam, respons cepat untuk semua jenis keadaan darurat</p>
+                                        </div>
+
+                                        <div class="emergency-contact">
+                                            <h4>🏥 RUMAH SAKIT TERDEKAT</h4>
+                                            <p>Instalasi Gawat Darurat (IGD)</p>
+                                            <p>Layanan emergency psychiatric services</p>
+                                        </div>
+
+                                        <div class="emergency-contact">
+                                            <h4>📞 HOTLINE MENTAL HEALTH</h4>
+                                            <p class="hotline-number"><a href="tel:021-7256526">021-7256526</a></p>
+                                            <p>Dukungan krisis kesehatan mental</p>
+                                        </div>
+
+                                        <div class="emergency-contact">
+                                            <h4>🛡️ PENCEGAHAN BUNUH DIRI</h4>
+                                            <p class="hotline-number"><a href="tel:021-31904343">021-3190-4343</a></p>
+                                            <p>Konseling krisis dan pencegahan bunuh diri</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="crisis-steps">
+                                    <h3>Langkah-langkah dalam Krisis:</h3>
+                                    <div class="step-by-step">
+                                        <div class="step-item">
+                                            <div class="step-number">1</div>
+                                            <div class="step-content">
+                                                <h4>Keselamatan Pertama</h4>
+                                                <p>Pastikan Anda atau orang yang mengalami krisis dalam keadaan aman</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-item">
+                                            <div class="step-number">2</div>
+                                            <div class="step-content">
+                                                <h4>Hubungi Bantuan</h4>
+                                                <p>Telepon nomor darurat atau minta orang lain melakukannya</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-item">
+                                            <div class="step-number">3</div>
+                                            <div class="step-content">
+                                                <h4>Stay Connected</h4>
+                                                <p>Tetap bersama orang yang mengalami krisis sampai bantuan datang</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="step-item">
+                                            <div class="step-number">4</div>
+                                            <div class="step-content">
+                                                <h4>Ikuti Instruksi</h4>
+                                                <p>Dengarkan dan ikuti petunjuk dari operator atau petugas medis</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Perubahan Disclaimer -->
+                        <section id="perubahan" class="content-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                                Perubahan pada Disclaimer
+                            </h2>
+                            <div class="section-content">
+                                <div class="disclaimer-updates">
+                                    <h3>Update dan Revisi</h3>
+                                    <p class="section-intro">
+                                        Disclaimer ini dapat diperbarui dari waktu ke waktu untuk mencerminkan 
+                                        perubahan layanan, regulasi hukum, atau praktik terbaik dalam industri 
+                                        kesehatan mental digital.
+                                    </p>
+                                </div>
+
+                                <div class="update-process">
+                                    <h3>Proses Pembaruan:</h3>
+                                    <ol class="update-steps">
+                                        <li><strong>Review Berkala:</strong> Disclaimer ditinjau minimal setiap 6 bulan</li>
+                                        <li><strong>Notifikasi Advance:</strong> Perubahan signifikan akan diberitahukan 30 hari sebelumnya</li>
+                                        <li><strong>Version Control:</strong> Setiap perubahan akan memiliki version number dan tanggal</li>
+                                        <li><strong>Archive:</strong> Versi sebelumnya akan diarsipkan untuk referensi</li>
+                                    </ol>
+                                </div>
+
+                                <div class="user-notification">
+                                    <h3>Bagaimana Anda Akan Diberitahu:</h3>
+                                    <ul class="notification-methods">
+                                        <li><strong>In-App Notification:</strong> Alert di dalam platform</li>
+                                        <li><strong>Email:</strong> Pemberitahuan ke alamat email terdaftar</li>
+                                        <li><strong>Website Banner:</strong> Informasi prominent di halaman utama</li>
+                                        <li><strong>Social Media:</strong> Pengumuman melalui channel resmi</li>
+                                    </ul>
+                                </div>
+
+                                <div class="version-info">
+                                    <h3>Informasi Versi Saat Ini:</h3>
+                                    <div class="version-box">
+                                        <p><strong>Version:</strong> 2.1</p>
+                                        <p><strong>Effective Date:</strong> <span th:text="${lastUpdated}">15 Januari 2025</span></p>
+                                        <p><strong>Last Review:</strong> <span th:text="${lastUpdated}">15 Januari 2025</span></p>
+                                        <p><strong>Next Scheduled Review:</strong> Juli 2025</p>
+                                    </div>
+                                </div>
+
+                                <div class="version-history">
+                                    <h3>Riwayat Perubahan:</h3>
+                                    <ul class="version-list">
+                                        <li><strong>v2.1 (15 Jan 2025):</strong> Penambahan detail protokol darurat dan keterbatasan AI</li>
+                                        <li><strong>v2.0 (1 Des 2024):</strong> Revisi comprehensive untuk compliance dengan regulasi baru</li>
+                                        <li><strong>v1.5 (1 Oct 2024):</strong> Update disclaimer konten pengguna dan moderasi</li>
+                                        <li><strong>v1.0 (1 Aug 2024):</strong> Disclaimer pertama saat platform launch</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

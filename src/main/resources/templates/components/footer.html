@@ -1,0 +1,125 @@
+<!-- Main Footer Fragment -->
+<footer th:fragment="footer" class="main-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <section class="footer-section">
+                    <h3>Project Akasha</h3>
+                    <p>Platform kesehatan mental berbasis AI yang menghadirkan dukungan psikologis dengan pendekatan personal dan profesional untuk para survivor bullying.</p>
+                    
+                    <div class="footer-character">
+                        <img th:src="@{/images/cover-character.jpg}" 
+                             alt="Karakter guru anime berambut perak mengulurkan tangan dengan ramah" 
+                             class="footer-character-img"
+                             width="80" 
+                             height="80"
+                             loading="lazy">
+                    </div>
+                </section>
+
+                <!-- Navigation Links -->
+                <section class="footer-section">
+                    <h4>Navigasi</h4>
+                    <nav aria-label="Footer navigation">
+                        <ul class="footer-links">
+                            <li><a href="/" th:href="@{/}">Beranda</a></li>
+                            <li><a href="/about" th:href="@{/about}">Tentang Kami</a></li>
+                            <li><a href="/help" th:href="@{/help}">Bantuan</a></li>
+                            <li><a href="/contact" th:href="@{/contact}">Kontak</a></li>
+                            <li><a href="/admin/login" th:href="@{/admin/login}">Login Admin</a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <!-- Mental Health Resources -->
+                <section class="footer-section">
+                    <h4>Dukungan Kesehatan Mental</h4>
+                    <nav aria-label="Mental health resources">
+                        <ul class="footer-links">
+                            <li><a href="tel:119" aria-label="Call emergency mental health hotline">🚨 Hotline Crisis: 119</a></li>
+                            <li><a href="tel:021-7256526" aria-label="Call mental health support">📞 Kesehatan Mental: 021-7256526</a></li>
+                            <li><a href="tel:021-31904343" aria-label="Call suicide prevention hotline">💙 Pencegahan Bunuh Diri: 021-3190-4343</a></li>
+                            <li><a href="https://sejiwa.co.id/" target="_blank" rel="noopener noreferrer">Yayasan Sejiwa</a></li>
+                            <li><a href="https://pijarpsikologi.org/" target="_blank" rel="noopener noreferrer">Pijar Psikologi</a></li>
+                            <li><a href="mailto:support@projectakasha.com" aria-label="Send us an email">📧 support@projectakasha.com</a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <!-- Developer & Social -->
+                <section class="footer-section">
+                    <h4>Developer & Sosial</h4>
+                    <nav aria-label="Developer and social media links">
+                        <ul class="footer-links">
+                            <li>
+                                <a href="https://github.com/hanzama" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   aria-label="Visit developer's GitHub profile">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    GitHub: @hanzama
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/in/hanzama" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   aria-label="Connect on LinkedIn">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/projectakasha" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   aria-label="Follow us on Instagram">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    @projectakasha
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/projectakasha" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   aria-label="Follow us on Twitter">
+                                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    @projectakasha
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Contact Info -->
+                    <address class="footer-contact">
+                        <strong>PT. Akasha Digital Indonesia</strong><br>
+                        Jakarta, Indonesia<br>
+                        <a href="mailto:legal@projectakasha.com">legal@projectakasha.com</a>
+                    </address>
+                </section>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <!-- Legal Links -->
+                <nav class="footer-legal" aria-label="Legal pages">
+                    <a href="/privacy" th:href="@{/privacy}" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>
+                    <span class="separator" aria-hidden="true">|</span>
+                    <a href="/terms" th:href="@{/terms}" target="_blank" rel="noopener noreferrer">Syarat & Ketentuan</a>
+                    <span class="separator" aria-hidden="true">|</span>
+                    <a href="/disclaimer" th:href="@{/disclaimer}" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+                </nav>
+                
+                <!-- Copyright and Developer Attribution -->
+                <div class="footer-info">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Project Akasha. Semua hak cipta dilindungi.</p>
+                    </div>
+                    <div class="footer-dev">
+                        <p>Dikembangkan dengan ❤️ oleh <strong th:text="${developerName ?: 'Hanzama'}">Hanzama</strong></p>
+                        <p class="version-info">Version 1.0.0 - Built with Spring Boot & Thymeleaf</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>
