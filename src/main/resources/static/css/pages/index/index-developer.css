@@ -5,14 +5,14 @@
 
 /* ======= DEVELOPER SECTION ======= */
 .developer-section {
-    background: var(--color-white); /* Background terang konsisten dengan section lain */
+    background: var(--color-white);
     color: var(--color-text);
     position: relative;
     overflow: hidden;
-    padding: var(--space-4xl) 0; /* Konsisten dengan section lainnya */
+    padding: var(--space-5xl) 0; /* Enhanced padding */
 }
 
-/* Subtle gradient overlay untuk depth */
+/* Enhanced gradient overlay untuk depth */
 .developer-section::before {
     content: '';
     position: absolute;
@@ -20,8 +20,19 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.02) 0%, transparent 60%);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.03) 0%, transparent 60%);
     pointer-events: none;
+    animation: developerGlow 8s ease-in-out infinite;
+}
+
+@keyframes developerGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .developer-content {
@@ -80,30 +91,93 @@
     margin-top: var(--space-2xl);
 }
 
-/* Tombol dengan gaya sekunder yang konsisten */
+/* Enhanced developer link dengan better interactions */
 .developer-link {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl); /* Padding konsisten dengan btn-secondary */
-    background: transparent; /* Background transparan untuk tema terang */
+    padding: var(--space-md) var(--space-xl);
+    background: transparent;
     color: var(--color-text);
     text-decoration: none;
-    border-radius: var(--radius-lg); /* Border-radius yang sama dengan tombol lainnya */
+    border-radius: var(--radius-lg);
     font-weight: 500;
-    font-size: 1rem; /* Tipografi yang sama dengan tombol sekunder */
-    transition: all var(--transition-fast);
-    border: 2px solid var(--color-gray-300); /* Border konsisten dengan btn-secondary */
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Enhanced transition */
+    border: 2px solid var(--color-gray-300);
+    position: relative;
+    overflow: hidden;
 }
 
 .developer-link:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
-    transform: translateY(-1px);
+    transform: translateY(-3px) scale(1.05); /* Enhanced hover */
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.2);
+}
+
+.developer-link:active {
+    transform: translateY(-1px) scale(1.02); /* Click feedback */
 }
 
 .developer-link i {
-    font-size: 1.1rem; /* Ikon yang proporsional */
+    font-size: 1.1rem;
+    transition: transform 0.3s ease; /* Enhanced icon transitions */
+}
+
+.developer-link:hover i {
+    transform: scale(1.2) rotate(10deg); /* Icon enhancement */
+}
+
+/* Enhanced animations untuk developer section */
+@keyframes fadeInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes codeTyping {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes developerMessageFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation classes untuk JavaScript */
+.animate-message {
+    animation: developerMessageFade 0.8s ease-out forwards;
+}
+
+.animate-code {
+    animation: fadeInFromLeft 0.6s ease-out forwards;
+}
+
+/* Copy button styles - akan ditambahkan via JavaScript */
+.code-copy-btn {
+    font-family: var(--font-primary, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif) !important;
+}
+
+.code-copy-btn:hover {
+    background: var(--color-secondary) !important;
+    transform: scale(1.1);
 }
 
 .developer-visual {
@@ -112,15 +186,23 @@
     align-items: center;
 }
 
-/* Code Snippet dengan integrasi visual yang lebih baik */
+/* Code Snippet dengan enhanced interactivity */
 .code-snippet {
-    background: #f8fafc; /* Background abu-abu muda untuk tema terang */
-    border-radius: var(--radius-lg); /* Border-radius konsisten dengan tombol */
+    background: #f8fafc;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--color-gray-200); /* Border yang halus untuk tema terang */
+    border: 1px solid var(--color-gray-200);
     font-family: 'Courier New', monospace;
     max-width: 100%;
-    box-shadow: 0 15px 40px rgba(45, 55, 72, 0.08); /* Shadow konsisten */
+    box-shadow: 0 15px 40px rgba(45, 55, 72, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Enhanced transition */
+    position: relative; /* For copy button positioning */
+    cursor: pointer; /* Indicate interactivity */
+}
+
+.code-snippet:hover {
+    transform: translateY(-5px) scale(1.02); /* Enhanced hover effect */
+    box-shadow: 0 20px 50px rgba(45, 55, 72, 0.15);
 }
 
 .code-header {
@@ -162,7 +244,17 @@
 
 .code-line {
     margin-bottom: var(--space-xs);
-    color: var(--color-text); /* Teks gelap untuk tema terang */
+    color: var(--color-text);
+    transition: all 0.3s ease; /* Smooth transitions for animations */
+    /* Default state untuk JavaScript animations */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.code-line:hover {
+    background: rgba(74, 144, 226, 0.05); /* Subtle hover effect */
+    padding-left: var(--space-xs);
+    border-radius: var(--radius-sm);
 }
 
 .code-comment {
@@ -171,46 +263,151 @@
 }
 
 .code-keyword {
-    color: #0066cc; /* Biru tua untuk keyword agar kontras di background terang */
+    color: #0066cc;
     font-weight: 600;
+    transition: all 0.2s ease; /* Smooth hover transitions */
+    cursor: pointer;
+}
+
+.code-keyword:hover {
+    color: var(--color-primary);
+    transform: scale(1.05);
 }
 
 .code-variable {
-    color: #6f42c1; /* Ungu gelap untuk variabel */
+    color: #6f42c1;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.code-variable:hover {
+    color: var(--color-secondary);
+    transform: scale(1.05);
 }
 
 .code-string {
-    color: #d73a49; /* Merah gelap untuk string */
+    color: #d73a49;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.code-string:hover {
+    color: #e85869;
+    transform: scale(1.05);
 }
 
 .code-function {
-    color: #005cc5; /* Biru gelap untuk function */
+    color: #005cc5;
     font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.code-function:hover {
+    color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+/* Highlight effect for interactive code elements */
+.highlighted {
+    background: rgba(74, 144, 226, 0.2) !important;
+    border-radius: 3px !important;
+    padding: 2px 4px !important;
+    margin: -2px -4px !important;
+    animation: highlightPulse 0.5s ease-out !important;
+}
+
+@keyframes highlightPulse {
+    0% {
+        background: rgba(74, 144, 226, 0.4);
+        transform: scale(1.1);
+    }
+    100% {
+        background: rgba(74, 144, 226, 0.2);
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px) scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
 /* Responsive Design untuk Developer Section */
 @media (max-width: 768px) {
+    .developer-section {
+        padding: var(--space-4xl) 0; /* Reduced padding pada mobile */
+    }
+    
     .developer-content {
         grid-template-columns: 1fr;
-        gap: var(--space-2xl);
+        gap: var(--space-3xl); /* Larger gap untuk mobile */
         text-align: center;
     }
     
     .developer-info .section-title {
         text-align: center;
-        font-size: 2rem; /* Ukuran yang tepat untuk mobile */
+        font-size: 2rem;
+    }
+    
+    .developer-message {
+        font-size: 1rem; /* Slightly smaller pada mobile */
+        text-align: left; /* Keep text left-aligned untuk readability */
+        max-width: 600px;
+        margin: 0 auto;
     }
     
     .code-snippet {
-        max-width: 300px;
+        max-width: 350px; /* Slightly larger pada mobile */
         margin: 0 auto;
+    }
+    
+    .code-content {
+        padding: var(--space-md);
+        font-size: 0.75rem;
     }
     
     .developer-link {
         width: 100%;
         justify-content: center;
-        max-width: 300px;
+        max-width: 320px;
         margin: 0 auto;
+    }
+    
+    /* Enhanced mobile interactions */
+    .code-snippet:hover {
+        transform: translateY(-3px) scale(1.01); /* Subtle hover pada mobile */
+    }
+    
+    .developer-link:hover {
+        transform: translateY(-2px) scale(1.02); /* Subtle hover pada mobile */
     }
 }
 
@@ -219,20 +416,65 @@
         padding: var(--space-3xl) 0;
     }
     
-    .developer-message {
-        font-size: 1rem;
-    }
-    
-    .code-content {
-        padding: var(--space-md);
-        font-size: 0.7rem;
-    }
-    
-    .code-snippet {
-        max-width: 280px;
+    .developer-content {
+        gap: var(--space-2xl);
     }
     
     .developer-info .section-title {
         font-size: 1.75rem;
+        line-height: 1.2;
+    }
+    
+    .developer-message {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    
+    .developer-message em {
+        font-size: 0.9rem;
+        padding: var(--space-md);
+    }
+    
+    .code-snippet {
+        max-width: 300px;
+    }
+    
+    .code-content {
+        padding: var(--space-sm);
+        font-size: 0.7rem;
+    }
+    
+    .code-header {
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .code-title {
+        font-size: 0.75rem;
+    }
+    
+    .developer-link {
+        max-width: 280px;
+        font-size: 0.9rem;
+        padding: var(--space-sm) var(--space-lg);
+    }
+    
+    /* Mobile-specific optimizations */
+    .code-line:hover {
+        background: none; /* Disable hover pada mobile untuk performance */
+        padding-left: 0;
+    }
+    
+    /* Disable some animations pada very small screens */
+    @media (max-width: 320px) {
+        .developer-section::before {
+            animation: none; /* Disable background animation */
+        }
+        
+        .code-keyword:hover,
+        .code-variable:hover,
+        .code-string:hover,
+        .code-function:hover {
+            transform: none; /* Disable hover transforms */
+        }
     }
 }

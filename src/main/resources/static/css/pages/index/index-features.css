@@ -17,6 +17,7 @@
     gap: var(--space-5xl); /* Gap yang sangat lega - 4rem */
     margin-top: var(--space-5xl);
     width: 100%; /* Gunakan lebar penuh dari .container */
+    align-items: start; /* Align to start instead of stretch for better control */
 }
 
 .feature-card {
@@ -31,16 +32,16 @@
     /* Flexbox untuk menyamakan tinggi secara natural */
     display: flex;
     flex-direction: column;
-    height: fit-content; /* Pastikan tinggi menyesuaikan konten */
-    /* Animasi fade-in default */
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeInUp 0.8s ease-out forwards;
+    min-height: 100%; /* Use min-height instead of height: fit-content */
+    /* Initial state for JavaScript animation */
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 /* Card structure untuk layout yang seimbang */
 .card-header {
     flex: 0 0 auto; /* Header tidak akan grow */
+    margin-bottom: var(--space-lg);
 }
 
 .card-body {
@@ -48,11 +49,12 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Distribute content evenly */
 }
 
 .card-footer {
     flex: 0 0 auto; /* Footer tidak akan grow */
-    margin-top: auto; /* Push footer ke bawah */
+    margin-top: var(--space-lg); /* Consistent spacing */
 }
 
 .feature-card::before {
@@ -89,6 +91,63 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Enhanced animations for JavaScript interactions */
+@keyframes cardSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes bubbleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Utility classes for JavaScript animations */
+.feature-card.animate-stagger {
+    animation: cardSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-icon.bounce-effect {
+    animation: iconBounce 0.4s ease-out;
+}
+
+.chat-bubble.slide-in {
+    animation: bubbleSlideIn 0.5s ease-out;
+}
+
+.forum-card.scale-in {
+    animation: scaleIn 0.4s ease-out;
 }
 
 .feature-icon {
@@ -421,6 +480,8 @@
     
     .feature-card {
         padding: var(--space-3xl);
+        /* Reset height on tablet for better responsive behavior */
+        height: auto !important;
     }
 }
 

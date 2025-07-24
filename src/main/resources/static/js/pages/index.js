@@ -39,13 +39,85 @@ function loadStoryScript() {
     });
 }
 
+function loadFeaturesScript() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '/js/pages/index/index-features.js';
+        script.defer = true;
+        script.onload = () => {
+            console.log('Features script loaded successfully');
+            resolve();
+        };
+        script.onerror = () => {
+            console.error('Failed to load features script');
+            reject(new Error('Features script loading failed'));
+        };
+        document.head.appendChild(script);
+    });
+}
+
+function loadMissionScript() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '/js/pages/index/index-mission.js';
+        script.defer = true;
+        script.onload = () => {
+            console.log('Mission script loaded successfully');
+            resolve();
+        };
+        script.onerror = () => {
+            console.error('Failed to load mission script');
+            reject(new Error('Mission script loading failed'));
+        };
+        document.head.appendChild(script);
+    });
+}
+
+function loadCTAScript() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '/js/pages/index/index-cta.js';
+        script.defer = true;
+        script.onload = () => {
+            console.log('CTA script loaded successfully');
+            resolve();
+        };
+        script.onerror = () => {
+            console.error('Failed to load CTA script');
+            reject(new Error('CTA script loading failed'));
+        };
+        document.head.appendChild(script);
+    });
+}
+
+function loadDeveloperScript() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '/js/pages/index/index-developer.js';
+        script.defer = true;
+        script.onload = () => {
+            console.log('Developer script loaded successfully');
+            resolve();
+        };
+        script.onerror = () => {
+            console.error('Failed to load developer script');
+            reject(new Error('Developer script loading failed'));
+        };
+        document.head.appendChild(script);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     
     // Load section scripts first
     try {
         await Promise.all([
             loadHeroScript(),
-            loadStoryScript()
+            loadStoryScript(),
+            loadFeaturesScript(),
+            loadMissionScript(),
+            loadCTAScript(),
+            loadDeveloperScript()
         ]);
         console.log('All section scripts loaded, initializing page...');
     } catch (error) {

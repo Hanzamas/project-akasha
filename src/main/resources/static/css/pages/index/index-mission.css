@@ -5,10 +5,11 @@
 
 /* ======= MISSION SECTION ======= */
 .mission-section {
-    background: var(--color-gray-50); /* Background konsisten dengan seksi lain */
-    color: var(--color-text); /* Text color disesuaikan */
+    background: var(--color-gray-50);
+    color: var(--color-text);
     position: relative;
     overflow: hidden;
+    padding: var(--space-5xl) 0; /* Padding lebih generous */
 }
 
 .mission-section::before {
@@ -18,15 +19,21 @@
     right: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(circle at 70% 30%, rgba(74, 144, 226, 0.03) 0%, transparent 50%); /* Subtle accent */
+    background: radial-gradient(circle at 70% 30%, rgba(74, 144, 226, 0.04) 0%, transparent 60%);
     pointer-events: none;
+    animation: subtleFloat 8s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 .mission-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-4xl);
-    align-items: flex-start; /* Perbaikan alignment - kolom dimulai dari atas */
+    grid-template-columns: 1.8fr 1.2fr; /* Proporsi lebih balanced */
+    gap: var(--space-5xl); /* Gap lebih besar */
+    align-items: flex-start;
     position: relative;
     z-index: 1;
 }
@@ -92,17 +99,23 @@
 .mission-list li {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-md); /* Gap yang lebih lega */
-    margin-bottom: var(--space-xl); /* Spacing antar item lebih besar untuk keterbacaan */
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-text-light); /* Text color disesuaikan */
-    transition: all 0.3s ease; /* Smooth transition untuk hover */
+    color: var(--color-text-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Enhanced transition */
+    opacity: 1; /* Default visibility untuk JavaScript animation */
+    transform: translateX(0); /* Default position */
+    padding: var(--space-sm) 0; /* Padding untuk touch targets */
+    border-radius: var(--radius-md); /* Subtle rounded corners */
 }
 
 .mission-list li:hover {
-    color: var(--color-text); /* Darker text pada hover */
-    transform: translateX(5px); /* Subtle hover effect */
+    color: var(--color-text);
+    transform: translateX(8px); /* Lebih dramatis hover effect */
+    background: rgba(74, 144, 226, 0.05); /* Subtle background pada hover */
+    padding-left: var(--space-md); /* Padding kiri saat hover */
 }
 
 .mission-list li::before {
@@ -141,26 +154,27 @@
     gap: var(--space-2xl); /* Gap lebih besar untuk breathing room dan keseimbangan visual */
 }
 
-/* Staggered animation untuk value cards */
-.value-item:nth-child(1) { animation-delay: 0.1s; }
-.value-item:nth-child(2) { animation-delay: 0.2s; }
-.value-item:nth-child(3) { animation-delay: 0.3s; }
-.value-item:nth-child(4) { animation-delay: 0.4s; }
+/* Values grid with enhanced layout */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+}
 
 .value-item {
-    background: var(--color-white); /* Background putih bersih */
-    border-radius: var(--radius-xl); /* Radius lebih besar untuk tampilan modern */
-    padding: var(--space-xl); /* Padding lebih generous */
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl); /* Padding lebih generous */
     text-align: center;
-    box-shadow: 0 8px 25px rgba(45, 55, 72, 0.08); /* Shadow subtle seperti feature cards */
-    border: 1px solid var(--color-gray-100); /* Border halus */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi yang lebih smooth dan premium */
+    box-shadow: 0 10px 30px rgba(45, 55, 72, 0.08); /* Shadow lebih dalam */
+    border: 1px solid var(--color-gray-100);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi lebih smooth */
     position: relative;
     overflow: hidden;
-    /* Animasi fade-in default */
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out forwards;
+    cursor: pointer; /* Indicate interactivity */
+    /* Default state untuk JavaScript animations */
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .value-item::before {
@@ -169,22 +183,59 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 4px; /* Sedikit lebih tebal */
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     transform: scaleX(0);
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left;
 }
 
 .value-item:hover {
-    background: var(--color-white); /* Tetap putih */
-    transform: translateY(-8px); /* Efek floating lebih dramatis */
-    box-shadow: 0 20px 50px rgba(45, 55, 72, 0.15); /* Shadow lebih premium saat hover */
-    border-color: rgba(74, 144, 226, 0.3);
+    background: var(--color-white);
+    transform: translateY(-10px) scale(1.02); /* Enhanced hover dengan scale */
+    box-shadow: 0 25px 60px rgba(45, 55, 72, 0.15);
+    border-color: rgba(74, 144, 226, 0.4); /* Border lebih prominent */
 }
 
 .value-item:hover::before {
-    transform: scaleX(1); /* Top border gradient saat hover */
+    transform: scaleX(1);
+}
+
+/* Enhanced interaction states */
+.value-item:active {
+    transform: translateY(-8px) scale(0.98); /* Subtle click feedback */
+}
+
+/* Keyframes for enhanced animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(45, 55, 72, 0.08);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(74, 144, 226, 0.2);
+    }
 }
 
 .value-icon {
@@ -227,14 +278,19 @@
 
 /* Responsive Design for Mission */
 @media (max-width: 768px) {
+    .mission-section {
+        padding: var(--space-4xl) 0; /* Reduced padding pada mobile */
+    }
+    
     .mission-content {
         grid-template-columns: 1fr;
-        gap: var(--space-2xl);
+        gap: var(--space-3xl); /* Gap lebih kecil pada mobile */
         text-align: center;
     }
     
     .mission-text .section-title {
         text-align: center;
+        font-size: 2rem; /* Font size lebih kecil pada mobile */
     }
     
     .signature {
@@ -243,33 +299,71 @@
     
     .mission-block h3 {
         justify-content: center;
+        font-size: 1.25rem; /* Font size disesuaikan */
+    }
+    
+    .mission-list li {
+        font-size: 0.95rem; /* Font size sedikit lebih kecil */
+        margin-bottom: var(--space-lg); /* Spacing lebih compact */
     }
     
     .values-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-lg); /* Gap lebih lega di mobile */
+        gap: var(--space-lg);
+    }
+    
+    .value-item {
+        padding: var(--space-lg); /* Padding lebih compact */
     }
 }
 
 @media (max-width: 480px) {
+    .mission-section {
+        padding: var(--space-3xl) 0; /* Padding minimal pada mobile kecil */
+    }
+    
+    .mission-content {
+        gap: var(--space-2xl); /* Gap minimal */
+    }
+    
+    .mission-text .section-title {
+        font-size: 1.75rem; /* Font size lebih kecil lagi */
+        line-height: 1.2;
+    }
+    
     .values-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-lg); /* Gap konsisten */
+        gap: var(--space-lg);
     }
     
     .value-item {
-        padding: var(--space-lg); /* Padding lebih comfortable */
+        padding: var(--space-lg);
+        margin-bottom: var(--space-md); /* Margin bottom untuk spacing */
+    }
+    
+    .value-icon {
+        font-size: 2rem; /* Icon sedikit lebih kecil */
     }
     
     .mission-intro {
-        font-size: 1.1rem;
+        font-size: 1rem; /* Font size lebih compact */
     }
     
     .mission-block p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .mission-list li {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        gap: var(--space-sm); /* Gap lebih kecil */
+    }
+    
+    /* Enhanced mobile interactions */
+    .mission-list li:hover {
+        transform: translateX(4px); /* Hover effect lebih subtle di mobile */
+    }
+    
+    .value-item:hover {
+        transform: translateY(-6px) scale(1.01); /* Hover effect lebih subtle */
     }
 }
