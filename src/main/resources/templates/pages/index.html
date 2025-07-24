@@ -32,17 +32,12 @@
     
     <!-- Landing Page Specific JavaScript - POLISHED -->
     <th:block th:fragment="scripts">
+
         <script th:src="@{/js/pages/index.js}" defer></script>
     </th:block>
 </head>
 <body>
     <main th:fragment="main">
-        <!-- Loading Screen -->
-        <div id="loading-screen" aria-hidden="true">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">Memuat Project Akasha...</div>
-        </div>
-
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="hero-bg-decoration" aria-hidden="true"></div>
@@ -72,7 +67,7 @@
                         </div>
 
                         <div class="hero-buttons">
-                            <a th:href="@{/api/auth/register}" class="btn-primary hero-cta" aria-label="Begin your healing journey">
+                            <a href="#final-cta" class="btn-primary hero-cta scroll-to" aria-label="Begin your healing journey">
                                 <i class="fas fa-heart" aria-hidden="true"></i>
                                 Mulai Perjalanan Anda
                             </a>
@@ -501,7 +496,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section final-cta section" aria-labelledby="cta-heading">
+        <section id="final-cta" class="cta-section final-cta section" aria-labelledby="cta-heading">
             <div class="container">
                 <div class="cta-content fade-in">
                     <h2 id="cta-heading" class="cta-title">Siap Mengambil Langkah Pertama?</h2>

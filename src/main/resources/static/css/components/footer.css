@@ -16,6 +16,16 @@
     /* Position */
     position: relative;
     overflow: hidden;
+    
+    /* Animation */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.main-footer.footer-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .main-footer::before {
@@ -184,15 +194,16 @@
 .footer-links a[href^="tel"] {
     font-weight: 600;
     color: var(--color-secondary);
-    background: rgba(255, 107, 107, 0.08);
-    border-left: 2px solid var(--color-secondary);
+    background: rgba(255, 107, 107, 0.05);
+    border-left: 3px solid var(--color-secondary);
     padding-left: var(--space-md);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .footer-links a[href^="tel"]:hover {
-    color: var(--color-primary);
-    background: rgba(74, 144, 226, 0.08);
-    border-left-color: var(--color-primary);
+    color: var(--color-white);
+    background: var(--color-secondary);
+    border-left-color: var(--color-secondary);
     transform: translateX(2px);
 }
 

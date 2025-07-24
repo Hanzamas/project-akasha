@@ -78,10 +78,10 @@
     
     height: 4px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    width: 75%; /* Seberapa jauh progresnya */
+    width: 0%; /* Start from 0 for animation */
     z-index: 2; /* Di atas garis BG */
     border-radius: var(--radius-full);
-    transition: width var(--transition-slow);
+    transition: width 1.5s ease-out;
 }
 
 .step-item {
@@ -132,6 +132,48 @@
     0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+/* Enhanced animations for JavaScript interactions */
+@keyframes timelineSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes valueCardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Utility classes for JavaScript animations */
+.timeline-item.animate-stagger {
+    animation: timelineSlideIn 0.6s ease-out;
+}
+
+.value-card.animate-stagger {
+    animation: valueCardAppear 0.7s ease-out;
+}
+
+.value-icon.bounce-effect {
+    animation: iconBounce 0.5s ease-out;
 }
 
 /* ======= BARIS 2: KISAH & PROSES (LAYOUT SEIMBANG) ======= */
@@ -210,6 +252,10 @@
     align-items: flex-start;
     gap: var(--space-md);
     position: relative;
+    /* Initial state for JS animation */
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.6s ease-out;
 }
 
 .timeline-dot {
@@ -274,6 +320,9 @@
     box-shadow: 0 4px 20px rgba(74, 144, 226, 0.08);
     border: 1px solid var(--color-gray-100);
     transition: all var(--transition-fast);
+    /* Initial state for JS animation */
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .value-card:hover {

@@ -105,7 +105,7 @@ function loadSpecificLegalPageScript() {
             loadScript('/js/pages/legal/legal-help.js');
             break;
         case 'disclaimer':
-            loadScript('/js/pages/legal/legal-disclaimer.js');
+            loadScript('/js/pages/legal-disclaimer.js');
             break;
         default:
             console.log('No specific script for this legal page');

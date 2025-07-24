@@ -9,16 +9,18 @@
 @import url('./legal/legal-contact.css');
 @import url('./legal/legal-privacy.css');
 @import url('./legal/legal-terms.css');
+@import url('./legal/legal-disclaimer.css');
 
 /* ======= LEGAL PAGES GENERAL STYLES ======= */
 .legal-page {
     min-height: calc(100vh - 72px);
 }
 
-.legal-content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-4xl) var(--space-lg);
+/* ======= MAIN CONTENT CONTAINER ======= */
+.legal-main {
+    width: 100%;
+    max-width: none; /* Let container handle max-width */
+    /* Remove margin and padding override - let individual pages handle it */
 }
 
 /* ======= PAGE HERO SECTION ======= */
