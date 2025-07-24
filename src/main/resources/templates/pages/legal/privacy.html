@@ -32,6 +32,7 @@
     <!-- Legal Page Specific JavaScript -->
     <th:block th:fragment="scripts">
         <th:block th:replace="~{components/scripts :: legal-scripts}"></th:block>
+       
     </th:block>
 </head>
 <body>
@@ -54,24 +55,9 @@
         <!-- Privacy Content -->
         <section class="legal-content">
             <div class="container">
-                <div class="content-wrapper">
-                    <!-- Sidebar Navigation -->
-                    <nav class="content-nav" aria-label="Navigasi konten">
-                        <ul class="nav-list">
-                            <li><a href="#pendahuluan">Pendahuluan</a></li>
-                            <li><a href="#data-yang-dikumpulkan">Data yang Dikumpulkan</a></li>
-                            <li><a href="#tujuan-penggunaan">Tujuan Penggunaan Data</a></li>
-                            <li><a href="#berbagi-data">Berbagi Data</a></li>
-                            <li><a href="#keamanan-data">Keamanan Data</a></li>
-                            <li><a href="#hak-pengguna">Hak Pengguna</a></li>
-                            <li><a href="#cookies">Penggunaan Cookies</a></li>
-                            <li><a href="#perubahan">Perubahan Kebijakan</a></li>
-                            <li><a href="#kontak">Kontak</a></li>
-                        </ul>
-                    </nav>
-
+                <div class="legal-content-container">
                     <!-- Main Content -->
-                    <div class="legal-main">
+                    <div class="privacy-main">
                         <!-- Pendahuluan -->
                         <section id="pendahuluan" class="content-section">
                             <h2 class="section-title">
@@ -502,6 +488,11 @@
                 </div>
             </div>
         </section>
+
+        <!-- Scroll to Top Button -->
+        <button class="scroll-top" id="scrollTop" aria-label="Kembali ke atas">
+            <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        </button>
     </main>
 </body>
 </html>

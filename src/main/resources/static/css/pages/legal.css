@@ -6,6 +6,9 @@
 /* Import all legal page sections */
 @import url('./legal/legal-about.css');
 @import url('./legal/legal-help.css');
+@import url('./legal/legal-contact.css');
+@import url('./legal/legal-privacy.css');
+@import url('./legal/legal-terms.css');
 
 /* ======= LEGAL PAGES GENERAL STYLES ======= */
 .legal-page {
@@ -13,7 +16,7 @@
 }
 
 .legal-content-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-4xl) var(--space-lg);
 }
@@ -41,7 +44,7 @@
 .page-hero .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -60,7 +63,7 @@
     font-size: 1.2rem;
     line-height: 1.7;
     color: var(--color-text-light);
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -93,7 +96,7 @@
     font-size: 1.2rem;
     color: var(--color-text-light);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
 }
 

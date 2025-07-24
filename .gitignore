@@ -34,3 +34,4 @@ build/
 src/main/resources/aiven_truststore.jks
 .gitignore
 src/main/resources/application.properties
+.github/copilot-instructions.md
