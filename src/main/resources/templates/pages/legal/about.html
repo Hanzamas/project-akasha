@@ -36,7 +36,7 @@
 <body>
     <main th:fragment="main">
         <!-- Hero Section -->
-        <section class="hero-section page-hero">
+        <section class="hero-section page-hero fade-in">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">Tentang Project Akasha</h1>
@@ -51,33 +51,33 @@
         <!-- Story Section -->
         <section class="content-section story-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header fade-in">
                     <h2 class="section-title">Lahir dari Sebuah Luka, Tumbuh untuk Menyembuhkan</h2>
                 </div>
                 
-                <div class="story-content">
+                <div class="story-content fade-in">
                     <div class="story-text">
-                        <p class="story-paragraph">
+                        <p class="story-paragraph story-reveal">
                             Project Akasha lahir dari pengalaman yang mungkin tidak asing bagi banyak dari kita - 
                             pengalaman menjadi korban perundungan yang meninggalkan luka mendalam. Saat itu, 
                             saya merasakan bagaimana rasanya terjebak dalam kegelapan, merasa sendirian, 
                             dan tidak tahu harus mencari bantuan ke mana.
                         </p>
                         
-                        <p class="story-paragraph">
+                        <p class="story-paragraph story-reveal">
                             Dalam momen-momen tergelap itu, saya menyadari betapa pentingnya memiliki ruang yang aman - 
                             tempat di mana kita bisa berbicara tanpa takut dihakimi, tempat di mana kita bisa 
                             menemukan dukungan dari orang-orang yang memahami perjuangan kita.
                         </p>
                         
-                        <p class="story-paragraph">
+                        <p class="story-paragraph story-reveal">
                             Pengalaman itu mengubah hidup saya. Dari korban, saya bertekad untuk menjadi bagian 
                             dari solusi. Project Akasha adalah manifestasi dari tekad itu - sebuah platform 
                             digital yang saya ciptakan tidak hanya untuk diri saya, tetapi untuk setiap jiwa 
                             yang pernah merasa terpuruk dan membutuhkan harapan.
                         </p>
                         
-                        <p class="story-paragraph">
+                        <p class="story-paragraph story-reveal">
                             Setiap fitur dalam aplikasi ini dirancang berdasarkan pengalaman nyata dan pemahaman 
                             mendalam tentang apa yang benar-benar dibutuhkan seseorang dalam perjalanan pemulihan 
                             kesehatan mental. Ini bukan sekadar proyek teknologi - ini adalah misi personal 
@@ -100,8 +100,8 @@
         <!-- Vision & Mission Section -->
         <section class="content-section vision-mission-section">
             <div class="container">
-                <div class="vm-grid">
-                    <div class="vision-card">
+                <div class="vm-grid fade-in">
+                    <div class="vision-card vm-card-animate">
                         <div class="vm-icon">🌟</div>
                         <h3 class="vm-title">Visi Kami</h3>
                         <p class="vm-description" th:text="${visionStatement}">
@@ -111,17 +111,17 @@
                         </p>
                     </div>
                     
-                    <div class="mission-card">
+                    <div class="mission-card vm-card-animate">
                         <div class="vm-icon">🎯</div>
                         <h3 class="vm-title">Misi Kami</h3>
                         <p class="vm-description" th:text="${missionStatement}">
                             Membangun ruang aman digital untuk kesehatan mental melalui teknologi yang empati dan komunitas yang suportif.
                         </p>
                         <ul class="mission-list">
-                            <li>Menyediakan alat bantu digital yang suportif dan mudah diakses</li>
-                            <li>Membangun komunitas online yang aman dan bebas dari penghakiman</li>
-                            <li>Menyebarkan edukasi untuk meningkatkan kesadaran tentang kesehatan mental</li>
-                            <li>Memberikan dukungan 24/7 melalui AI Companion yang empati</li>
+                            <li class="mission-item">Menyediakan alat bantu digital yang suportif dan mudah diakses</li>
+                            <li class="mission-item">Membangun komunitas online yang aman dan bebas dari penghakiman</li>
+                            <li class="mission-item">Menyebarkan edukasi untuk meningkatkan kesadaran tentang kesehatan mental</li>
+                            <li class="mission-item">Memberikan dukungan 24/7 melalui AI Companion yang empati</li>
                         </ul>
                     </div>
                 </div>
@@ -131,15 +131,15 @@
         <!-- Values Section -->
         <section class="content-section values-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header fade-in">
                     <h2 class="section-title">Nilai-Nilai Kami</h2>
                     <p class="section-subtitle">
                         Prinsip-prinsip yang memandu setiap keputusan dan fitur dalam Project Akasha
                     </p>
                 </div>
                 
-                <div class="values-grid">
-                    <div class="value-card">
+                <div class="values-grid fade-in">
+                    <div class="value-card value-card-animate">
                         <div class="value-icon">❤️</div>
                         <h3 class="value-title">Empati</h3>
                         <p class="value-description">
@@ -147,7 +147,7 @@
                         </p>
                     </div>
                     
-                    <div class="value-card">
+                    <div class="value-card value-card-animate">
                         <div class="value-icon">🔒</div>
                         <h3 class="value-title">Kerahasiaan</h3>
                         <p class="value-description">
@@ -155,7 +155,7 @@
                         </p>
                     </div>
                     
-                    <div class="value-card">
+                    <div class="value-card value-card-animate">
                         <div class="value-icon">🛡️</div>
                         <h3 class="value-title">Keamanan</h3>
                         <p class="value-description">
@@ -163,7 +163,7 @@
                         </p>
                     </div>
                     
-                    <div class="value-card">
+                    <div class="value-card value-card-animate">
                         <div class="value-icon">🤝</div>
                         <h3 class="value-title">Dukungan</h3>
                         <p class="value-description">
@@ -177,12 +177,15 @@
         <!-- Team Section -->
         <section class="content-section team-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header fade-in">
                     <h2 class="section-title">Sebuah Misi Personal</h2>
+                    <p class="section-subtitle">
+                        Kisah personal di balik terciptanya Project Akasha dan visi untuk masa depan kesehatan mental digital.
+                    </p>
                 </div>
                 
                 <div class="team-content">
-                    <div class="founder-profile">
+                    <div class="founder-profile team-animate">
                         <div class="founder-image">
                             <img th:src="@{/images/founder-avatar.jpg}" 
                                  alt="Foto profil founder Project Akasha"
@@ -223,7 +226,7 @@
         <!-- Call to Action Section -->
         <section class="content-section cta-section">
             <div class="container">
-                <div class="cta-content">
+                <div class="cta-content fade-in">
                     <h2 class="cta-title">Mari Tumbuh Bersama</h2>
                     <p class="cta-description">
                         Project Akasha adalah lebih dari sekadar aplikasi - ini adalah gerakan untuk 
